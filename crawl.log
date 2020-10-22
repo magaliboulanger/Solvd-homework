@@ -1,0 +1,12 @@
+ERROR	2020-10-19 21:19:14,004	1	com.solvd.hospital.Main	[main]	 
+com.solvd.hospital.exceptions.NullDiagnosisException: The patient hasn't a diagnosis yet.
+	at com.solvd.hospital.model.person.Doctor.fixPatient(Doctor.java:101)
+	at com.solvd.hospital.Main.main(Main.java:98)
+ERROR	2020-10-19 21:19:14,007	4	com.solvd.hospital.Main	[main]	
+com.solvd.hospital.exceptions.NullDiseasesThatHealsException: The medical worker should heal one disease at least.
+	at com.solvd.hospital.model.person.Doctor.setDiseasesThatHeals(Doctor.java:56)
+	at com.solvd.hospital.Main.main(Main.java:108)
+ERROR	2020-10-19 21:19:14,007	4	com.solvd.hospital.Main	[main]	 
+com.solvd.hospital.exceptions.NullSymptomsException: Symptoms can’t be null.
+	at com.solvd.hospital.model.person.Patient.setSymptoms(Patient.java:42)
+	at com.solvd.hospital.Main.main(Main.java:114)

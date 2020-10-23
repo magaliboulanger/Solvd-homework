@@ -19,23 +19,23 @@ public class MyConnectionPool {
 	}
 
 
-	public Object getConnection(){
+	public Object getConnection() throws InterruptedException{
 		synchronized(MyConnectionPool.class) {
 			if(usedConnections<MAX_SIZE)
 			{
-				connectionPool.add(new Object());
+				connectionPool.put(new Object());
 				usedConnections++;
 			}
 				
 		}
-		return connectionPool.poll();
+		return connectionPool.take();
 
 	}
 
 
 
-	public boolean releaseConnection(Object connection) {
-		connectionPool.add(connection);
+	public boolean releaseConnection(Object connection) throws InterruptedException {
+		connectionPool.put(connection);
 		usedConnections--;
 		return true;
 	}

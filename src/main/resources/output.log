@@ -1,21 +1,12 @@
-2020-10-22 20:47:46 INFO  Main:21 - Connection was obtained.
-2020-10-22 20:47:46 INFO  Main:23 - Connection was obtained.
-2020-10-22 20:47:46 INFO  Main:21 - Connection was obtained.
-2020-10-22 20:47:46 INFO  Main:21 - Connection was obtained.
-2020-10-22 20:47:46 INFO  Main:23 - Connection was obtained.
-2020-10-22 20:47:51 INFO  Main:23 - Connection was free.
-2020-10-22 20:47:51 INFO  Main:25 - Connection was free.
-2020-10-22 20:47:51 INFO  Main:23 - Connection was free.
-2020-10-22 20:47:51 INFO  Main:23 - Connection was free.
-2020-10-22 20:47:51 INFO  Main:25 - Connection was free.
-2020-10-22 20:47:51 INFO  Main:23 - Connection was obtained.
-2020-10-22 20:47:56 INFO  Main:25 - Connection was free.
-2020-10-22 20:47:56 ERROR Main:29 - 
-java.lang.IllegalStateException: Queue full
-	at java.util.AbstractQueue.add(AbstractQueue.java:98) ~[?:?]
-	at java.util.concurrent.ArrayBlockingQueue.add(ArrayBlockingQueue.java:326) ~[?:?]
-	at com.solvd.connectionpool.MyConnectionPool.releaseConnection(MyConnectionPool.java:39) ~[classes/:?]
-	at com.solvd.connectionpool.Test2.run(Test2.java:26) [classes/:?]
-	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128) [?:?]
-	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628) [?:?]
-	at java.lang.Thread.run(Thread.java:835) [?:?]
+2020-10-22 21:13:18 INFO  Main:21 - Connection was obtained.
+2020-10-22 21:13:18 INFO  Main:23 - Connection was obtained.
+2020-10-22 21:13:18 INFO  Main:21 - Connection was obtained.
+2020-10-22 21:13:18 INFO  Main:21 - Connection was obtained.
+2020-10-22 21:13:18 INFO  Main:23 - Connection was obtained.
+2020-10-22 21:13:23 INFO  Main:25 - Connection was free.
+2020-10-22 21:13:23 INFO  Main:23 - Connection was free.
+2020-10-22 21:13:23 INFO  Main:25 - Connection was free.
+2020-10-22 21:13:23 INFO  Main:23 - Connection was free.
+2020-10-22 21:13:23 INFO  Main:23 - Connection was free.
+2020-10-22 21:13:23 INFO  Main:23 - Connection was obtained.
+2020-10-22 21:13:28 INFO  Main:25 - Connection was free.

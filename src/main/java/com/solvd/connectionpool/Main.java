@@ -7,7 +7,7 @@ import java.util.concurrent.TimeUnit;
 public class Main {
 	
 	public static void main(String[] args ) {
-		ExecutorService ex=Executors.newFixedThreadPool(5);
+		ExecutorService ex=Executors.newFixedThreadPool(10);
 		MyConnectionPool pool;
 		pool = new MyConnectionPool(5);
 		Test1 t11 =new Test1(pool);

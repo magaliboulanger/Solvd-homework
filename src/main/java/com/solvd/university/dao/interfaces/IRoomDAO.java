@@ -6,8 +6,8 @@ import com.solvd.university.model.Room;
 
 public interface IRoomDAO {
 
-	public boolean save(Room b);
-	public boolean removeById(long id);
-	public Room getById(long id);
-	public ArrayList<Room> getAll();
+	boolean save(Room b);
+	boolean removeById(long id);
+	Room getById(long id);
+	ArrayList<Room> getAll();
 }

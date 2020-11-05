@@ -4,18 +4,18 @@ import java.util.ArrayList;
 
 import com.solvd.connectionpool.MyConnectionPool;
 import com.solvd.university.dao.MySQLDAO;
-import com.solvd.university.dao.interfaces.IStudentDAO;
-import com.solvd.university.model.Student;
+import com.solvd.university.dao.interfaces.IExamDAO;
+import com.solvd.university.model.Exam;
 
-public class StudentDAO extends MySQLDAO implements IStudentDAO{
+public class ExamDAO extends MySQLDAO implements IExamDAO{
 
-	public StudentDAO(MyConnectionPool connection) {
+	public ExamDAO(MyConnectionPool connection) {
 		super(connection);
 		// TODO Auto-generated constructor stub
 	}
 
 	@Override
-	public boolean save(Student b) {
+	public boolean save(Exam b) {
 		// TODO Auto-generated method stub
 		return false;
 	}
@@ -27,13 +27,13 @@ public class StudentDAO extends MySQLDAO implements IStudentDAO{
 	}
 
 	@Override
-	public Student getById(long id) {
+	public Exam getById(long id) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public ArrayList<Student> getAll() {
+	public ArrayList<Exam> getAll() {
 		// TODO Auto-generated method stub
 		return null;
 	}

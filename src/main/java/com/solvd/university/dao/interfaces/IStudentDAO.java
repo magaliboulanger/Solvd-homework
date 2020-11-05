@@ -6,8 +6,8 @@ import com.solvd.university.model.Student;
 
 public interface IStudentDAO {
 
-	public boolean save(Student b);
-	public boolean removeById(long id);
-	public Student getById(long id);
-	public ArrayList<Student> getAll();
+	boolean save(Student b);
+	boolean removeById(long id);
+	Student getById(long id);
+	ArrayList<Student> getAll();
 }

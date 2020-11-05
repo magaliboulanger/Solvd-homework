@@ -1,6 +1,6 @@
 package com.solvd.university.model;
 
-public class AbstractEntity {
+public abstract class AbstractEntity {
 	private long id;
 
 	public AbstractEntity(long id) {

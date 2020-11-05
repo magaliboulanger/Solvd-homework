@@ -6,8 +6,8 @@ import com.solvd.university.model.Teacher;
 
 public interface ITeacherDAO {
 
-	public boolean save(Teacher b);
-	public boolean removeById(long id);
-	public Teacher getById(long id);
-	public ArrayList<Teacher> getAll();
+	boolean save(Teacher b);
+	boolean removeById(long id);
+	Teacher getById(long id);
+	ArrayList<Teacher> getAll();
 }

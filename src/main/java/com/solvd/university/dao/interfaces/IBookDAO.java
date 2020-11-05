@@ -6,8 +6,8 @@ import com.solvd.university.model.Book;
 
 public interface IBookDAO {
 
-	public boolean save(Book b);
-	public boolean removeById(long id);
-	public Book getById(long id);
-	public ArrayList<Book> getAll();
+	boolean save(Book b);
+	boolean removeById(long id);
+	Book getById(long id);
+	ArrayList<Book> getAll();
 }

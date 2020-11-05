@@ -5,8 +5,8 @@ import java.util.ArrayList;
 import com.solvd.university.model.Library;
 
 public interface ILibraryDAO {
-	public boolean save(Library b);
-	public boolean removeById(long id);
-	public Library getById(long id);
-	public ArrayList<Library> getAll();
+	boolean save(Library b);
+	boolean removeById(long id);
+	Library getById(long id);
+	ArrayList<Library> getAll();
 }

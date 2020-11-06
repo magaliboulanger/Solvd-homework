@@ -3,7 +3,6 @@ package com.solvd.university.dao.mysql;
 import java.util.ArrayList;
 
 import com.solvd.connectionpool.MyConnectionPool;
-import com.solvd.university.dao.MySQLDAO;
 import com.solvd.university.dao.interfaces.IBuildingDAO;
 import com.solvd.university.model.Building;
 

@@ -1,12 +1,1 @@
-2020-10-22 21:13:18 INFO  Main:21 - Connection was obtained.
-2020-10-22 21:13:18 INFO  Main:23 - Connection was obtained.
-2020-10-22 21:13:18 INFO  Main:21 - Connection was obtained.
-2020-10-22 21:13:18 INFO  Main:21 - Connection was obtained.
-2020-10-22 21:13:18 INFO  Main:23 - Connection was obtained.
-2020-10-22 21:13:23 INFO  Main:25 - Connection was free.
-2020-10-22 21:13:23 INFO  Main:23 - Connection was free.
-2020-10-22 21:13:23 INFO  Main:25 - Connection was free.
-2020-10-22 21:13:23 INFO  Main:23 - Connection was free.
-2020-10-22 21:13:23 INFO  Main:23 - Connection was free.
-2020-10-22 21:13:23 INFO  Main:23 - Connection was obtained.
-2020-10-22 21:13:28 INFO  Main:25 - Connection was free.
+2020-11-05 23:26:54 INFO  University:40 - Department [name=Geography, teachers=[Teacher [name=Maria, phone=123456, email=maria@gmail.com], Teacher [name=Lucas, phone=123456, email=lucas@gmail.com], Teacher [name=Martin, phone=123456, email=martin@martin.com], Teacher [name=Maria, phone=123456, email=maria@gmail.com], Teacher [name=Lucas, phone=123456, email=lucas@gmail.com], Teacher [name=Martin, phone=123456, email=martin@martin.com]]]

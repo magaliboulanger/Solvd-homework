@@ -1,14 +1,35 @@
 package com.solvd.university.model;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class Department extends AbstractEntity {
 	private String name;
-	private ArrayList<Teacher> teachers;
-	public Department(long id, String name, ArrayList<Teacher> teachers) {
+	private List<Teacher> teachers;
+	public Department(long id, String name, List<Teacher> teachers) {
 		super(id);
 		this.name = name;
 		this.teachers=teachers;
+	}
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
+	public List<Teacher> getTeachers() {
+		return teachers;
+	}
+	public void setTeachers(List<Teacher> teachers) {
+		this.teachers = teachers;
+	}
+	public long getId() {
+		// TODO Auto-generated method stub
+		return super.getId();
+	}
+	@Override
+	public String toString() {
+		return "Department [name=" + name + ", teachers=" + teachers + "]";
 	}
 	
 }

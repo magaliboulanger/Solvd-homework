@@ -1,12 +1,12 @@
 package com.solvd.university.model;
 
-import java.util.ArrayList;
+import java.util.List;
 
 public class Study  extends AbstractEntity {
 
 	private Student student;
-	private ArrayList<Exam> exams;
-	public Study(long id, Student student, ArrayList<Exam> exams) {
+	private List<Exam> exams;
+	public Study(long id, Student student, List<Exam> exams) {
 		super(id);
 		this.student = student;
 		this.exams = exams;

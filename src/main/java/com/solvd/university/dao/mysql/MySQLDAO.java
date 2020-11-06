@@ -1,10 +1,10 @@
-package com.solvd.university.dao;
+package com.solvd.university.dao.mysql;
 
 import com.solvd.connectionpool.MyConnectionPool;
 
 public abstract class MySQLDAO {
 
-	private MyConnectionPool connection;
+	protected MyConnectionPool connection;
 
 	public MySQLDAO(MyConnectionPool connection) {
 		this.connection = connection;

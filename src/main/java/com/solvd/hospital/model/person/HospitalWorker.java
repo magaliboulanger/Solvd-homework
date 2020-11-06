@@ -1,9 +1,13 @@
 package com.solvd.hospital.model.person;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 import com.solvd.hospital.exceptions.SalaryZeroException;
 
 public abstract class HospitalWorker extends Person {
 	private Double salary;
+	private static Logger l= LogManager.getLogger(HospitalWorker.class);
 
 	//constructors
 	public HospitalWorker(int id, String name, String phoneNumber, String address, Double salary) {
@@ -12,7 +16,7 @@ public abstract class HospitalWorker extends Person {
 			this.setSalary(salary);
 		} catch (SalaryZeroException e) {
 			// TODO Auto-generated catch block
-			e.printStackTrace();
+			l.error(e);
 		}
 	}
 	

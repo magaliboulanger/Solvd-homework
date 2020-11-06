@@ -10,5 +10,28 @@ public class Subject extends AbstractEntity {
 		this.hours = hours;
 		this.credits = credits;
 	}
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
+	public int getHours() {
+		return hours;
+	}
+	public void setHours(int hours) {
+		this.hours = hours;
+	}
+	public int getCredits() {
+		return credits;
+	}
+	public void setCredits(int credits) {
+		this.credits = credits;
+	}
+	@Override
+	public String toString() {
+		return "Subject [name=" + name + ", hours=" + hours + ", credits=" + credits + "]";
+	}
+	
 	
 }

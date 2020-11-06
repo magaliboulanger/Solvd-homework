@@ -2,6 +2,9 @@ package com.solvd.hospital.model.person;
 
 import java.util.Objects;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 import com.solvd.hospital.exceptions.InvalidIdentifierException;
 
 public abstract class Person  {
@@ -10,6 +13,7 @@ public abstract class Person  {
 	private String name;
 	private String phoneNumber;
 	private String address;
+	private static Logger l= LogManager.getLogger(Person.class);
 	
 	//constructors
 	public Person(int id, String name, String phoneNumber, String address) {
@@ -17,8 +21,7 @@ public abstract class Person  {
 		try {
 			this.setId(id);
 		} catch (InvalidIdentifierException e) {
-			
-			e.printStackTrace();
+			l.error(e);
 		}
 		this.name = name;
 		this.phoneNumber = phoneNumber;

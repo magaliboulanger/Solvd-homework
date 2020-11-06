@@ -1,6 +1,6 @@
 package com.solvd.university.dao.mysql;
 
-import java.util.ArrayList;
+import java.util.List;
 
 import com.solvd.connectionpool.MyConnectionPool;
 import com.solvd.university.dao.interfaces.IBuildingDAO;
@@ -33,7 +33,7 @@ public class BuildingDAO extends MySQLDAO implements IBuildingDAO{
 	}
 
 	@Override
-	public ArrayList<Building> getAll() {
+	public List<Building> getAll() {
 		// TODO Auto-generated method stub
 		return null;
 	}

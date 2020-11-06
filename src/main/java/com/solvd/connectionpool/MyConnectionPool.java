@@ -6,6 +6,9 @@ import java.sql.SQLException;
 import java.util.concurrent.ArrayBlockingQueue;
 import java.util.concurrent.BlockingQueue;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 public class MyConnectionPool {
 
 	private final int MAX_SIZE;
@@ -15,7 +18,8 @@ public class MyConnectionPool {
 	private final String DRIVER ="com.mysql.cj.jdbc.Driver";
 	private final String USER_NAME ="root";
 	private final String PASSWORD ="secret";
-	
+
+	private static Logger l= LogManager.getLogger(MyConnectionPool.class);
 	private BlockingQueue<Connection> connectionPool;//Instead Object will be a class that implements Connection
 
 
@@ -35,7 +39,7 @@ public class MyConnectionPool {
 					connectionPool.put(DriverManager.getConnection(URL+DB_NAME,USER_NAME, PASSWORD));
 				} catch (InterruptedException | SQLException | InstantiationException | IllegalAccessException | ClassNotFoundException e) {
 					// TODO Auto-generated catch block
-					e.printStackTrace();
+					l.error(e);
 				}
 				usedConnections++;
 			}

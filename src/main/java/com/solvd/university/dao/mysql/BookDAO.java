@@ -20,7 +20,7 @@ public class BookDAO extends MySQLDAO implements IBookDAO {
 	private static final String INSERT = "INSERT INTO Book(title,author, num_pages, year, library_id) VALUES(?,?,?,?,?)";
 	private static final String DELETE = "DELETE FROM Book WHERE id = ?";
 	private static final String GETBYID = "SELECT * FROM Book WHERE id = ?";
-	private static final String GETBYLIBID = "SELECT * FROM Library WHERE library_id = ?";
+	private static final String GETBYLIBID = "SELECT * FROM Book WHERE library_id = ?";
 	private Logger log = LogManager.getLogger(BookDAO.class);
 	public BookDAO(MyConnectionPool connection) {
 		super(connection);
@@ -137,7 +137,7 @@ public class BookDAO extends MySQLDAO implements IBookDAO {
 	}
 
 	@Override
-	public ArrayList<Book> getAll() {
+	public List<Book> getAll() {
 		// TODO Auto-generated method stub
 		return null;
 	}

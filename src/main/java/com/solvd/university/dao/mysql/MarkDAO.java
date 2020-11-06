@@ -1,6 +1,6 @@
 package com.solvd.university.dao.mysql;
 
-import java.util.ArrayList;
+import java.util.List;
 
 import com.solvd.connectionpool.MyConnectionPool;
 import com.solvd.university.dao.interfaces.IMarkDAO;
@@ -32,7 +32,7 @@ public class MarkDAO extends MySQLDAO implements IMarkDAO {
 	}
 
 	@Override
-	public ArrayList<Mark> getAll() {
+	public List<Mark> getAll() {
 		// TODO Auto-generated method stub
 		return null;
 	}

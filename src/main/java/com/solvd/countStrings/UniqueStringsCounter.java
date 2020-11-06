@@ -4,10 +4,16 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 import org.apache.commons.io.FileUtils;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
+import com.solvd.connectionpool.MyConnectionPool;
 
 
 public class UniqueStringsCounter {
-	
+
+
+	private static Logger l= LogManager.getLogger(UniqueStringsCounter.class);
 	public static void main(String [] args) {
 		Map<String, Integer> map = new HashMap<String,Integer>();
 		try {
@@ -23,7 +29,7 @@ public class UniqueStringsCounter {
 			
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
-			e.printStackTrace();
+			l.error(e);
 		}
 	}
 }

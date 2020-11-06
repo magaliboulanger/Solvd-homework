@@ -1,6 +1,6 @@
 package com.solvd.university.dao.mysql;
 
-import java.util.ArrayList;
+import java.util.List;
 
 import com.solvd.connectionpool.MyConnectionPool;
 import com.solvd.university.dao.interfaces.IReservationRoomDAO;
@@ -32,7 +32,7 @@ public class ReservationRoomDAO extends MySQLDAO implements IReservationRoomDAO 
 	}
 
 	@Override
-	public ArrayList<ReservationRoom> getAll() {
+	public List<ReservationRoom> getAll() {
 		// TODO Auto-generated method stub
 		return null;
 	}

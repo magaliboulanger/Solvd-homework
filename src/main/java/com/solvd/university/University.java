@@ -1,5 +1,6 @@
 package com.solvd.university;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import org.apache.logging.log4j.LogManager;
@@ -11,7 +12,6 @@ import com.solvd.university.dao.mysql.*;
 import com.solvd.university.model.*;
 import com.solvd.university.services.*;
 
-import jdk.internal.org.jline.utils.Log;
 
 public class University extends AbstractEntity {
 
@@ -58,7 +58,39 @@ public class University extends AbstractEntity {
 		b.save(b3,01);
 		LibraryService ls= new LibraryService(b,l);
 		Library lib=ls.getById(1);
+
+		log.info("library service");
 		log.info(lib.toString());
 		
+		//STUDY SERVICE AND TEACH SERVICE
+		Student student=new Student(01, "John", "123456", "Street563");
+		Subject subject = new Subject(01, "Maths", 75, 5);
+		Teach teach = new Teach(01, t1, subject);
+		IExamDAO e=new ExamDAO(mcp);
+		Exam e1=new Exam(1,"A",new Date());
+		Exam e2=new Exam(2,"C",new Date());
+		Exam e3=new Exam(3,"F",new Date());
+		List<Exam> exams = new ArrayList<Exam>();
+		exams.add(e3);
+		exams.add(e2);
+		exams.add(e1);
+		Study study=new Study(01,student,teach,exams);
+		IStudyDAO sdao=new StudyDAO(mcp);
+		sdao.save(study);
+		e.save(e1, 01);
+		e.save(e2, 01);
+		e.save(e3, 01);
+		IStudyDAO stdao=new StudyDAO(mcp);
+		stdao.save(study);
+		ISubjectDAO subdao=new SubjectDAO(mcp);
+		subdao.save(subject);
+		ITeachDAO teachdao=new TeachDAO(mcp);
+		teachdao.save(teach);
+		IStudentDAO studentdao=new StudentDAO(mcp);
+		studentdao.save(student);
+		
+		StudyService stuserv = new StudyService (teachdao, subdao, t, e, studentdao, stdao);
+		Study out=stuserv.getById(01);
+		log.info(out.toString());
 		}
 }

@@ -4,6 +4,9 @@ package com.solvd.hospital.model;
 import java.util.Date;
 import java.util.Objects;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 import com.solvd.hospital.exceptions.NullDateException;
 import com.solvd.hospital.model.hospital.RoomWithReservation;
 import com.solvd.hospital.model.person.Doctor;
@@ -14,7 +17,8 @@ public class Appointment {
 	private Patient patient;
 	private Doctor doctor;
 	private Date date;
-	
+
+	private static Logger l= LogManager.getLogger(Appointment.class);
 	//constructors
 	public Appointment(RoomWithReservation room, Patient patient, Date date, Doctor doctor) {
 		this.room = room;
@@ -24,7 +28,7 @@ public class Appointment {
 			this.setDate(date);
 		} catch (NullDateException e) {
 			// TODO Auto-generated catch block
-			e.printStackTrace();
+			l.error(e);
 		}
 		this.doctor = doctor;
 	}

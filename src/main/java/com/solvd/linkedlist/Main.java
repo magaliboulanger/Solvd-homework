@@ -3,8 +3,12 @@
 import java.util.ArrayList;
 import java.util.Iterator;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 public class Main {
 
+	private static Logger l= LogManager.getLogger(Main.class);
 	public static void main(String [] args) {
 		
 		LinkedList list = new LinkedList();
@@ -13,40 +17,40 @@ public class Main {
 		list.add("b");
 		list.add("c");
 		list.add("d");
-		System.out.println("Size: "+ list.size()+", Is Empty: "+list.isEmpty());
+		l.info("Size: "+ list.size()+", Is Empty: "+list.isEmpty());
 		//using iterator
 		Iterator i = list.iterator();
-		System.out.println("items in the list:");
+		l.info("items in the list:");
 		while(i.hasNext()) {
-			System.out.println(i.next().toString());
+			l.info(i.next().toString());
 		}
 		//using to array
 		Object[] arr = list.toArray();
-		System.out.println("-------------------------------------------------");
-		System.out.println("items in array created from list:");
+		l.info("-------------------------------------------------");
+		l.info("items in array created from list:");
 		for(int j=0; j<arr.length; j++) {
-			System.out.println(arr[j].toString());
+			l.info(arr[j].toString());
 		}
-		System.out.println("-------------------------------------------------");
+		l.info("-------------------------------------------------");
 		//using remove
-		System.out.println("Remove 'a' from the list: "+ list.remove("a"));
+		l.info("Remove 'a' from the list: "+ list.remove("a"));
 		Iterator it = list.iterator();
 		while(it.hasNext()) {
-			System.out.println(it.next().toString());
+			l.info(it.next().toString());
 		}
 		//using to array (array)
 		Object[] s =list.toArray(arr);
-		System.out.println("items in array created from list with an array as a parameter:");
+		l.info("items in array created from list with an array as a parameter:");
 		int k = 0;
 		while (s[k]!=null) {
-			System.out.println(s[k].toString());
+			l.info(s[k].toString());
 			k++;
 		}
-		System.out.println("-------------------------------------------------");
+		l.info("-------------------------------------------------");
 		
 		//contains
-		System.out.println("List contains elemen'b'?:" + list.contains("b"));
-		System.out.println("-------------------------------------------------");
+		l.info("List contains elemen'b'?:" + list.contains("b"));
+		l.info("-------------------------------------------------");
 		
 		//add all
 		ArrayList<String> collec = new ArrayList<String>();
@@ -54,31 +58,31 @@ public class Main {
 		collec.add("f");
 		collec.add("z");
 		Iterator iter = list.iterator();
-		System.out.println("Adding 'g', 'f', 'z' using addAll: "+list.addAll(collec));
-		System.out.println("items in the list:");
+		l.info("Adding 'g', 'f', 'z' using addAll: "+list.addAll(collec));
+		l.info("items in the list:");
 		while(iter.hasNext()) {
-			System.out.println(iter.next().toString());
+			l.info(iter.next().toString());
 		}
-		System.out.println("-------------------------------------------------");
+		l.info("-------------------------------------------------");
 		
 		//contains all
-		System.out.println("Contains'g', 'f', 'z'?: "+list.containsAll(collec));
+		l.info("Contains'g', 'f', 'z'?: "+list.containsAll(collec));
 		collec.clear();
 		collec.add("b");
 		collec.add("r");
 		collec.add("x");
 		collec.add("e");
-		System.out.println("Contains'b', 'r', 'x', 'e'?: "+list.containsAll(collec));
-		System.out.println("-------------------------------------------------");
+		l.info("Contains'b', 'r', 'x', 'e'?: "+list.containsAll(collec));
+		l.info("-------------------------------------------------");
 		
 		//remove all
-		System.out.println("Remove'b', 'r', 'x', 'e'?: "+list.removeAll(collec));
+		l.info("Remove'b', 'r', 'x', 'e'?: "+list.removeAll(collec));
 		iter = list.iterator();
-		System.out.println("items in the list:");
+		l.info("items in the list:");
 		while(iter.hasNext()) {
-			System.out.println(iter.next().toString());
+			l.info(iter.next().toString());
 		}
-		System.out.println("-------------------------------------------------");
+		l.info("-------------------------------------------------");
 		
 		//retains all
 		collec.clear();
@@ -86,28 +90,28 @@ public class Main {
 		collec.add("f");
 		collec.add("x");
 		collec.add("z");
-		System.out.println("Retains'd', 'f', 'x', 'z'?: "+ list.retainAll(collec));
+		l.info("Retains'd', 'f', 'x', 'z'?: "+ list.retainAll(collec));
 		iter = list.iterator();
-		System.out.println("items in the list:");
+		l.info("items in the list:");
 		while(iter.hasNext()) {
-			System.out.println(iter.next().toString());
+			l.info(iter.next().toString());
 		}
-		System.out.println("-------------------------------------------------");
+		l.info("-------------------------------------------------");
 		
 		//get 
-		System.out.println("Get the 2° item: "+ list.get(2));
-		System.out.println("Get the 5° item: "+ list.get(5));
-		System.out.println("-------------------------------------------------");
+		l.info("Get the 2° item: "+ list.get(2));
+		l.info("Get the 5° item: "+ list.get(5));
+		l.info("-------------------------------------------------");
 		
 		//add in a pos 
-		System.out.println("Adding 'h' in the position 3° ... ");
+		l.info("Adding 'h' in the position 3° ... ");
 		list.add(3, "h");
 		iter = list.iterator();
-		System.out.println("items in the list:");
+		l.info("items in the list:");
 		while(iter.hasNext()) {
-			System.out.println(iter.next().toString());
+			l.info(iter.next().toString());
 		}
-		System.out.println("-------------------------------------------------");
+		l.info("-------------------------------------------------");
 		
 	}
 	

@@ -5,6 +5,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.List;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -138,16 +139,16 @@ public class TeacherDAO extends MySQLDAO  implements ITeacherDAO{
 	}
 
 	@Override
-	public ArrayList<Teacher> getAll() {
+	public List<Teacher> getAll() {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public ArrayList<Teacher> getByDepartmentId(long id) {
+	public List<Teacher> getByDepartmentId(long id) {
 		PreparedStatement stat=null;
 		ResultSet rs=null;
-		ArrayList<Teacher> t= new ArrayList<Teacher>();
+		List<Teacher> t= new ArrayList<Teacher>();
 		try{
 			stat=con.prepareStatement(GETBYDEPTOID);
 			stat.setLong(1,id);

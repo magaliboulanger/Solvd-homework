@@ -3,11 +3,23 @@ package com.solvd.university.model;
 import java.util.Date;
 
 public class Exam  extends AbstractEntity {
-	private char mark;
+	private String mark;
 	private Date date;
-	public Exam(long id, char mark, Date date) {
+	public Exam(long id, String mark, Date date) {
 		super(id);
 		this.mark = mark;
+		this.date = date;
+	}
+	public String getMark() {
+		return mark;
+	}
+	public void setMark(String mark) {
+		this.mark = mark;
+	}
+	public Date getDate() {
+		return date;
+	}
+	public void setDate(Date date) {
 		this.date = date;
 	}
 	

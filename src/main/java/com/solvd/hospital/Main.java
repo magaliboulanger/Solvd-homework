@@ -75,7 +75,7 @@ public class Main {
 			diseasesHeals.add("COVID");
 			Doctor doctor = new Doctor(IDPer, "Rob Black", null,null, 500.0,null, "51102", diseasesHeals);
 			Appointment ap = new Appointment(null, patient , new Date(), doctor);
-			System.out.println(doctor.getDiseasesThatHeals());
+			l.info(doctor.getDiseasesThatHeals());
 			doctor.setCurrentPatient(patient);
 			try {
 				if (doctor.fixPatient())

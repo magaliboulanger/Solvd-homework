@@ -6,7 +6,7 @@ INSERT INTO Building(name, location, creation_date) VALUES('Maths', 'North',STR_
 INSERT INTO Room(number, capacity, building_id) VALUES(6, 50, 01);
 INSERT INTO Subject(name, hours, credits) VALUES('Physics', '70', '5');
 
-UPDATE Mark SET mark='A' WHERE id=5;
+UPDATE Exam SET mark='A' WHERE id=5;
 UPDATE Room SET capacity=70 WHERE building_id=01;
 UPDATE Subject SET name='History' WHERE id=01;
 UPDATE Teacher SET email="marc@education.account.com" WHERE id=01;
@@ -26,7 +26,6 @@ LEFT JOIN Library l ON (b.library_id=l.id)
 LEFT JOIN Student st ON(st.id=r.student_id)
 LEFT JOIN Study s ON (s.student_id=st.id)
 LEFT JOIN Exam e ON(s.id=e.study_id)
-LEFT JOIN Mark m ON(m.id=e.mark_id)
 LEFT JOIN Teach t ON (s.teach_id=t.id)
 LEFT JOIN Teacher te ON (t.teacher_id=te.id)
 LEFT JOIN Subject su ON(su.id=t.subject_id)
@@ -84,11 +83,9 @@ HAVING COUNT(id)=356;
 
 
 --3 with group by 
-SELECT e.study_id, AVG(m.number_mark) AS 'Average'
-FROM Exam e 
-INNER JOIN Mark m
-ON (m.id=e.mark_id)
-GROUP BY e.study_id
+SELECT Building, COUNT(id) AS 'Amount of Rooms'
+FROM Room
+GROUP BY building_id
 
 SELECT d.id, COUNT(t.id)
 FROM Department d 

@@ -1,5 +1,8 @@
 package com.solvd.connectionpool;
 
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
 import java.util.concurrent.ArrayBlockingQueue;
 import java.util.concurrent.BlockingQueue;
 
@@ -7,23 +10,33 @@ public class MyConnectionPool {
 
 	private final int MAX_SIZE;
 	private int usedConnections;
-	private String url;
-	private BlockingQueue<Object> connectionPool;//Instead Object will be a class that implements Connection
+	private final String URL ="jdbc:mysql://localhost:33060/";
+	private final String DB_NAME ="mydb";
+	private final String DRIVER ="com.mysql.cj.jdbc.Driver";
+	private final String USER_NAME ="root";
+	private final String PASSWORD ="secret";
+	
+	private BlockingQueue<Connection> connectionPool;//Instead Object will be a class that implements Connection
 
 
 	public MyConnectionPool(int size) {
 		MAX_SIZE=size;
-		this.connectionPool=new ArrayBlockingQueue<Object>(MAX_SIZE);
-		this.url=null;
+		this.connectionPool=new ArrayBlockingQueue<Connection>(MAX_SIZE);
 		this.usedConnections=0;
 	}
 
 
-	public Object getConnection() throws InterruptedException{
+	public Connection getConnection() throws InterruptedException{
 		synchronized(MyConnectionPool.class) {
 			if(usedConnections<MAX_SIZE)
 			{
-				connectionPool.put(new Object());
+				try {
+					Class.forName(DRIVER).newInstance();
+					connectionPool.put(DriverManager.getConnection(URL+DB_NAME,USER_NAME, PASSWORD));
+				} catch (InterruptedException | SQLException | InstantiationException | IllegalAccessException | ClassNotFoundException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
 				usedConnections++;
 			}
 				
@@ -34,7 +47,7 @@ public class MyConnectionPool {
 
 
 
-	public boolean releaseConnection(Object connection) throws InterruptedException {
+	public boolean releaseConnection(Connection connection) throws InterruptedException {
 		connectionPool.put(connection);
 		usedConnections--;
 		return true;

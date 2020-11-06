@@ -1,5 +1,7 @@
 package com.solvd.connectionpool;
 
+import java.sql.Connection;
+
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -7,7 +9,7 @@ public class Test1 extends Thread{
 
 	private static Logger l= LogManager.getLogger(Main.class);
 	private MyConnectionPool pool;
-	private Object con;
+	private Connection con;
 	
 	public Test1(MyConnectionPool p)
 	{

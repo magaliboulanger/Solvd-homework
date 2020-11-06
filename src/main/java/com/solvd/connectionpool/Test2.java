@@ -1,6 +1,8 @@
 package com.solvd.connectionpool;
 
 
+import java.sql.Connection;
+
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -10,7 +12,7 @@ public class Test2 implements Runnable{
 
 	private static Logger l= LogManager.getLogger(Main.class);
 	private MyConnectionPool pool;
-	private Object con;
+	private Connection con;
 	public Test2(MyConnectionPool p)
 	{
 		this.pool=p;

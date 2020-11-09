@@ -14,9 +14,9 @@ public class MarkDAO extends MySQLDAO implements IMarkDAO {
 	}
 
 	@Override
-	public boolean save(Mark b) {
+	public long save(Mark b) {
 		// TODO Auto-generated method stub
-		return false;
+		return -1;
 	}
 
 	@Override

@@ -27,7 +27,7 @@ public class TeachDAO extends MySQLDAO implements ITeachDAO {
 	}
 
 	@Override
-	public boolean save(Teach b) {
+	public long save(Teach b) {
 		Connection con =null;
 		PreparedStatement stat = null;
         try{
@@ -41,10 +41,10 @@ public class TeachDAO extends MySQLDAO implements ITeachDAO {
               log.info("It may not have been saved.");
             }
             
-            return true;
+            return b.getId();
         } catch (SQLException | InterruptedException ex) {
            log.error(ex);
-           return false;
+           return -1;
         } finally {
             if (stat!=null){
                 try {

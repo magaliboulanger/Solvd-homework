@@ -26,7 +26,7 @@ public class DepartmentDAO extends MySQLDAO implements IDepartmentDAO{
 	}
 
 	@Override
-	public boolean save(Department b) {
+	public long save(Department b) {
 		PreparedStatement stat = null;
 		Connection con =null;
         try{
@@ -39,10 +39,10 @@ public class DepartmentDAO extends MySQLDAO implements IDepartmentDAO{
               log.info("It may not have been saved.");
             }
             
-            return true;
+            return b.getId();
         } catch (SQLException | InterruptedException ex) {
            log.error(ex);
-           return false;
+           return -1;
         } finally {
             if (stat!=null){
                 try {

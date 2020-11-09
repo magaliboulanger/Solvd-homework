@@ -14,9 +14,9 @@ public class RoomDAO extends MySQLDAO implements IRoomDAO{
 	}
 
 	@Override
-	public boolean save(Room b) {
+	public long save(Room b) {
 		// TODO Auto-generated method stub
-		return false;
+		return -1;
 	}
 
 	@Override

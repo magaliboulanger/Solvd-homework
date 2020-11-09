@@ -5,6 +5,6 @@ import com.solvd.university.model.Subject;
 
 
 public interface ISubjectDAO extends DAO<Subject, Long> {
-	boolean save(Subject b);
+	long save(Subject b);
 	
 }

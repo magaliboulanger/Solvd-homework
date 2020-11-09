@@ -24,7 +24,7 @@ public class LibraryDAO extends MySQLDAO implements ILibraryDAO {
 	}
 
 	@Override
-	public boolean save(Library b) {
+	public long save(Library b) {
 		Connection con =null;
 		PreparedStatement stat = null;
         try{
@@ -38,10 +38,10 @@ public class LibraryDAO extends MySQLDAO implements ILibraryDAO {
               log.info("It may not have been saved.");
             }
             
-            return true;
+            return b.getId();
         } catch (SQLException | InterruptedException ex) {
            log.error(ex);
-           return false;
+           return -1;
         } finally {
             if (stat!=null){
                 try {

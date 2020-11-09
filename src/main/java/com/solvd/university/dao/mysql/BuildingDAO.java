@@ -15,9 +15,9 @@ public class BuildingDAO extends MySQLDAO implements IBuildingDAO{
 	}
 
 	@Override
-	public boolean save(Building b) {
+	public long save(Building b) {
 		// TODO Auto-generated method stub
-		return false;
+		return -1;
 	}
 
 	@Override

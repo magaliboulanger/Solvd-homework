@@ -27,7 +27,7 @@ public class BookDAO extends MySQLDAO implements IBookDAO {
 	}
 
 	@Override
-	public boolean save(Book b, long idLib) {
+	public long save(Book b, long idLib) {
 		PreparedStatement stat = null;
         try{
         	con=connection.getConnection();
@@ -42,10 +42,10 @@ public class BookDAO extends MySQLDAO implements IBookDAO {
               log.info("It may not have been saved.");
             }
             
-            return true;
+            return b.getId();
         } catch (SQLException | InterruptedException ex) {
            log.error(ex);
-           return false;
+           return -1;
         } finally {
             if (stat!=null){
                 try {

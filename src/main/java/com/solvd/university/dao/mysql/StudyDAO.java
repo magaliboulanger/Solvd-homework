@@ -27,7 +27,7 @@ public class StudyDAO extends MySQLDAO implements IStudyDAO {
 	}
 
 	@Override
-	public boolean save(Study b) {
+	public long save(Study b) {
 		Connection con=null;
 		PreparedStatement stat = null;
         try{
@@ -41,10 +41,10 @@ public class StudyDAO extends MySQLDAO implements IStudyDAO {
               log.info("It may not have been saved.");
             }
             
-            return true;
+            return b.getId();
         } catch (SQLException | InterruptedException ex) {
            log.error(ex);
-           return false;
+           return -1;
         } finally {
             if (stat!=null){
                 try {

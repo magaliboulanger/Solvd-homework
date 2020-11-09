@@ -24,7 +24,7 @@ public class SubjectDAO extends MySQLDAO implements ISubjectDAO {
 	}
 
 	@Override
-	public boolean save(Subject b) {
+	public long save(Subject b) {
 		PreparedStatement stat = null;
 		Connection con =null;
         try{
@@ -38,10 +38,10 @@ public class SubjectDAO extends MySQLDAO implements ISubjectDAO {
               log.info("It may not have been saved.");
             }
             
-            return true;
+            return b.getId();
         } catch (SQLException | InterruptedException ex) {
            log.error(ex);
-           return false;
+           return -1;
         } finally {
             if (stat!=null){
                 try {

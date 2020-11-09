@@ -1,14 +1,11 @@
-package com.solvd.university.dao.interfaces;
+package com.solvd.university.dao;
 
 import java.util.List;
 
 import com.solvd.university.model.Teacher;
 
-public interface ITeacherDAO {
+public interface ITeacherDAO extends DAO<Teacher, Long>{
 
 	boolean save(Teacher b, long idDepartment);
-	boolean removeById(long id);
-	Teacher getById(long id);
-	List<Teacher> getAll();
 	List<Teacher> getByDepartmentId(long id);
 }

@@ -10,13 +10,12 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import com.solvd.connectionpool.MyConnectionPool;
-import com.solvd.hospital.Main;
-import com.solvd.university.dao.interfaces.IDepartmentDAO;
+
+import com.solvd.university.dao.IDepartmentDAO;
 import com.solvd.university.model.Department;
 
 public class DepartmentDAO extends MySQLDAO implements IDepartmentDAO{
 
-	private Connection con;
 	private static final String INSERT = "INSERT INTO Department(name) VALUES(?)";
 	private static final String DELETE = "DELETE FROM Department WHERE id = ?";
 	private static final String GETBYID = "SELECT * FROM Department WHERE id = ?";
@@ -29,7 +28,7 @@ public class DepartmentDAO extends MySQLDAO implements IDepartmentDAO{
 	@Override
 	public boolean save(Department b) {
 		PreparedStatement stat = null;
-		
+		Connection con =null;
         try{
         	con=connection.getConnection();
             stat= con.prepareStatement(INSERT);
@@ -63,9 +62,10 @@ public class DepartmentDAO extends MySQLDAO implements IDepartmentDAO{
 	}
 
 	@Override
-	public boolean removeById(long id) {
+	public boolean removeById(Long id) {
 		PreparedStatement stat = null;
-        try{
+		Connection con =null;
+		try{
         	con=connection.getConnection();
             stat= con.prepareStatement(DELETE);
             stat.setLong(1,id);
@@ -92,10 +92,11 @@ public class DepartmentDAO extends MySQLDAO implements IDepartmentDAO{
 	}
 
 	@Override
-	public Department getById(long id) {
+	public Department getById(Long id) {
 		PreparedStatement stat=null;
 		ResultSet rs=null;
 		Department depto=null;
+		Connection con =null;
 		try{
 			con=connection.getConnection();
 			stat=con.prepareStatement(GETBYID);

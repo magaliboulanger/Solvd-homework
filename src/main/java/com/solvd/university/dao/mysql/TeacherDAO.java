@@ -11,11 +11,10 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import com.solvd.connectionpool.MyConnectionPool;
-import com.solvd.university.dao.interfaces.ITeacherDAO;
+import com.solvd.university.dao.ITeacherDAO;
 import com.solvd.university.model.Teacher;
 
 public class TeacherDAO extends MySQLDAO  implements ITeacherDAO{
-	private Connection con;
 	private static final String INSERT = "INSERT INTO Teacher(name,department_id,phone_number,email) VALUES(?,?,?,?)";
 	private static final String DELETE = "DELETE FROM Teacher WHERE id = ?";
 	private static final String GETBYID = "SELECT * FROM Teacher WHERE id = ?";
@@ -29,7 +28,7 @@ public class TeacherDAO extends MySQLDAO  implements ITeacherDAO{
 
 	@Override
 	public boolean save(Teacher b, long idDepartment) {
-		
+		Connection con =null;
 		PreparedStatement stat = null;
         try{
         	con=connection.getConnection();
@@ -67,8 +66,9 @@ public class TeacherDAO extends MySQLDAO  implements ITeacherDAO{
 	}
 
 	@Override
-	public boolean removeById(long id) {
+	public boolean removeById(Long id) {
 		PreparedStatement stat = null;
+		Connection con =null;
         try{
         	con=connection.getConnection();
             stat= con.prepareStatement(DELETE);
@@ -96,10 +96,11 @@ public class TeacherDAO extends MySQLDAO  implements ITeacherDAO{
 	}
 
 	@Override
-	public Teacher getById(long id) {
+	public Teacher getById(Long id) {
 		PreparedStatement stat=null;
 		ResultSet rs=null;
 		Teacher t=null;
+		Connection con =null;
 		try{
 			con=connection.getConnection();
 			stat=con.prepareStatement(GETBYID);
@@ -148,6 +149,7 @@ public class TeacherDAO extends MySQLDAO  implements ITeacherDAO{
 	public List<Teacher> getByDepartmentId(long id) {
 		PreparedStatement stat=null;
 		ResultSet rs=null;
+		Connection con =null;
 		List<Teacher> t= new ArrayList<Teacher>();
 		try{
 			stat=con.prepareStatement(GETBYDEPTOID);

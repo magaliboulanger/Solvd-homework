@@ -3,7 +3,7 @@ package com.solvd.university.dao.mysql;
 import java.util.List;
 
 import com.solvd.connectionpool.MyConnectionPool;
-import com.solvd.university.dao.interfaces.IMarkDAO;
+import com.solvd.university.dao.IMarkDAO;
 import com.solvd.university.model.Mark;
 
 public class MarkDAO extends MySQLDAO implements IMarkDAO {
@@ -20,13 +20,13 @@ public class MarkDAO extends MySQLDAO implements IMarkDAO {
 	}
 
 	@Override
-	public boolean removeById(long id) {
+	public boolean removeById(Long id) {
 		// TODO Auto-generated method stub
 		return false;
 	}
 
 	@Override
-	public Mark getById(long id) {
+	public Mark getById(Long id) {
 		// TODO Auto-generated method stub
 		return null;
 	}

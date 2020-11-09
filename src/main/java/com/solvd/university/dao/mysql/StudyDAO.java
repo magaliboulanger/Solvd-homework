@@ -10,12 +10,11 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import com.solvd.connectionpool.MyConnectionPool;
-import com.solvd.university.dao.interfaces.IStudyDAO;
+import com.solvd.university.dao.IStudyDAO;
 import com.solvd.university.model.Study;
 import com.solvd.university.model.Teacher;
 
 public class StudyDAO extends MySQLDAO implements IStudyDAO {
-	private Connection con;
 	private static final String INSERT = "INSERT INTO Study(student_id,teach_id) VALUES(?,?)";
 	private static final String DELETE = "DELETE FROM Study WHERE id = ?";
 	private static final String GETBYID = "SELECT * FROM Study WHERE id = ?";
@@ -29,6 +28,7 @@ public class StudyDAO extends MySQLDAO implements IStudyDAO {
 
 	@Override
 	public boolean save(Study b) {
+		Connection con=null;
 		PreparedStatement stat = null;
         try{
         	con=connection.getConnection();
@@ -63,13 +63,13 @@ public class StudyDAO extends MySQLDAO implements IStudyDAO {
 	}
 
 	@Override
-	public boolean removeById(long id) {
+	public boolean removeById(Long id) {
 		// TODO Auto-generated method stub
 		return false;
 	}
 
 	@Override
-	public Study getById(long id) {
+	public Study getById(Long id) {
 		// TODO Auto-generated method stub
 		return new Study(id,null,null,null);
 	}
@@ -82,6 +82,7 @@ public class StudyDAO extends MySQLDAO implements IStudyDAO {
 
 	@Override
 	public long getStudentId(long id) {
+		Connection con=null;
 		PreparedStatement stat=null;
 		ResultSet rs=null;
 		long t=0;
@@ -125,6 +126,7 @@ public class StudyDAO extends MySQLDAO implements IStudyDAO {
 
 	@Override
 	public long getTeachId(long id) {
+		Connection con=null;
 		PreparedStatement stat=null;
 		ResultSet rs=null;
 		long t=0;

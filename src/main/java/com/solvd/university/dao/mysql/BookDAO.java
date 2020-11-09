@@ -11,9 +11,8 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import com.solvd.connectionpool.MyConnectionPool;
-import com.solvd.university.dao.interfaces.IBookDAO;
+import com.solvd.university.dao.IBookDAO;
 import com.solvd.university.model.Book;
-import com.solvd.university.model.Library;
 
 public class BookDAO extends MySQLDAO implements IBookDAO {
 	private Connection con;
@@ -65,7 +64,7 @@ public class BookDAO extends MySQLDAO implements IBookDAO {
 	}
 
 	@Override
-	public boolean removeById(long id) {
+	public boolean removeById(Long id) {
 		PreparedStatement stat = null;
         try{
         	con=connection.getConnection();
@@ -94,7 +93,7 @@ public class BookDAO extends MySQLDAO implements IBookDAO {
 	}
 
 	@Override
-	public Book getById(long id) {
+	public Book getById(Long id) {
 		PreparedStatement stat=null;
 		ResultSet rs=null;
 		Book t=null;
@@ -143,7 +142,7 @@ public class BookDAO extends MySQLDAO implements IBookDAO {
 	}
 
 	@Override
-	public List<Book> getByLibId(long id) {
+	public List<Book> getByLibId(Long id) {
 		PreparedStatement stat=null;
 		ResultSet rs=null;
 		List<Book> t=new ArrayList<Book>();

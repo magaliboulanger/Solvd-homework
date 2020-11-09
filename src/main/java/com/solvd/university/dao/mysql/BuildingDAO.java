@@ -3,7 +3,7 @@ package com.solvd.university.dao.mysql;
 import java.util.List;
 
 import com.solvd.connectionpool.MyConnectionPool;
-import com.solvd.university.dao.interfaces.IBuildingDAO;
+import com.solvd.university.dao.IBuildingDAO;
 import com.solvd.university.model.Building;
 
 public class BuildingDAO extends MySQLDAO implements IBuildingDAO{
@@ -21,13 +21,13 @@ public class BuildingDAO extends MySQLDAO implements IBuildingDAO{
 	}
 
 	@Override
-	public boolean removeById(long id) {
+	public boolean removeById(Long id) {
 		// TODO Auto-generated method stub
 		return false;
 	}
 
 	@Override
-	public Building getById(long id) {
+	public Building getById(Long id) {
 		// TODO Auto-generated method stub
 		return null;
 	}

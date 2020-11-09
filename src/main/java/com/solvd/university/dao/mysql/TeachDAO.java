@@ -10,12 +10,11 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import com.solvd.connectionpool.MyConnectionPool;
-import com.solvd.university.dao.interfaces.ITeachDAO;
+import com.solvd.university.dao.ITeachDAO;
 import com.solvd.university.model.Subject;
 import com.solvd.university.model.Teach;
 
 public class TeachDAO extends MySQLDAO implements ITeachDAO {
-	private Connection con;
 	private static final String INSERT = "INSERT INTO Teach(subject_id, teacher_id) VALUES(?,?)";
 	private static final String DELETE = "DELETE FROM Teach WHERE id = ?";
 	private static final String GETBYID = "SELECT * FROM Teach WHERE id = ?";
@@ -29,6 +28,7 @@ public class TeachDAO extends MySQLDAO implements ITeachDAO {
 
 	@Override
 	public boolean save(Teach b) {
+		Connection con =null;
 		PreparedStatement stat = null;
         try{
         	con=connection.getConnection();
@@ -63,13 +63,13 @@ public class TeachDAO extends MySQLDAO implements ITeachDAO {
 	}
 
 	@Override
-	public boolean removeById(long id) {
+	public boolean removeById(Long id) {
 		// TODO Auto-generated method stub
 		return false;
 	}
 
 	@Override
-	public Teach getById(long id) {
+	public Teach getById(Long id) {
 		// TODO Auto-generated method stub
 		return new Teach(id,null,null);
 	}
@@ -83,6 +83,7 @@ public class TeachDAO extends MySQLDAO implements ITeachDAO {
 	@Override
 	public long getSubjIdById(long id) {
 		PreparedStatement stat=null;
+		Connection con =null;
 		ResultSet rs=null;
 		long t = 0;
 		try{
@@ -126,6 +127,7 @@ public class TeachDAO extends MySQLDAO implements ITeachDAO {
 	@Override
 	public long getTeacherIdById(long id) {
 		PreparedStatement stat=null;
+		Connection con =null;
 		ResultSet rs=null;
 		long t = 0;
 		try{

@@ -7,7 +7,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import com.solvd.connectionpool.MyConnectionPool;
-import com.solvd.university.dao.interfaces.*;
+import com.solvd.university.dao.*;
 import com.solvd.university.dao.mysql.*;
 import com.solvd.university.model.*;
 import com.solvd.university.services.*;

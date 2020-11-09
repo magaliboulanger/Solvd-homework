@@ -1,7 +1,6 @@
 package com.solvd.university.services;
 
-import com.solvd.university.dao.interfaces.IDepartmentDAO;
-import com.solvd.university.dao.interfaces.ITeacherDAO;
+import com.solvd.university.dao.*;
 import com.solvd.university.model.Department;
 
 public class DepartmentService {

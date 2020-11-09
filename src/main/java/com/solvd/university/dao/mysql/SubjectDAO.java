@@ -10,11 +10,10 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import com.solvd.connectionpool.MyConnectionPool;
-import com.solvd.university.dao.interfaces.ISubjectDAO;
+import com.solvd.university.dao.ISubjectDAO;
 import com.solvd.university.model.Subject;
 
 public class SubjectDAO extends MySQLDAO implements ISubjectDAO {
-	private Connection con;
 	private static final String INSERT = "INSERT INTO Subject(name, hours, credits) VALUES(?,?,?)";
 	private static final String DELETE = "DELETE FROM Subject WHERE id = ?";
 	private static final String GETBYID = "SELECT * FROM Subject WHERE id = ?";
@@ -27,6 +26,7 @@ public class SubjectDAO extends MySQLDAO implements ISubjectDAO {
 	@Override
 	public boolean save(Subject b) {
 		PreparedStatement stat = null;
+		Connection con =null;
         try{
         	con=connection.getConnection();
             stat= con.prepareStatement(INSERT);
@@ -60,14 +60,15 @@ public class SubjectDAO extends MySQLDAO implements ISubjectDAO {
 	}
 
 	@Override
-	public boolean removeById(long id) {
+	public boolean removeById(Long id) {
 		// TODO Auto-generated method stub
 		return false;
 	}
 
 	@Override
-	public Subject getById(long id) {
+	public Subject getById(Long id) {
 		PreparedStatement stat=null;
+		Connection con =null;
 		ResultSet rs=null;
 		Subject t=null;
 		try{

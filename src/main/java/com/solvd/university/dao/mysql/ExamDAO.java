@@ -11,11 +11,10 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import com.solvd.connectionpool.MyConnectionPool;
-import com.solvd.university.dao.interfaces.IExamDAO;
+import com.solvd.university.dao.IExamDAO;
 import com.solvd.university.model.Exam;
 
 public class ExamDAO extends MySQLDAO implements IExamDAO{
-	private Connection con;
 	private static final String INSERT = "INSERT INTO Exam(mark, date, study_id) VALUES(?,?,?)";
 	private static final String DELETE = "DELETE FROM Exam WHERE id = ?";
 	private static final String GETBYID = "SELECT * FROM Exam WHERE id = ?";
@@ -29,6 +28,7 @@ public class ExamDAO extends MySQLDAO implements IExamDAO{
 	@Override
 	public boolean save(Exam b, long stuId) {
 		PreparedStatement stat = null;
+		Connection con =null;
         try{
         	con=connection.getConnection();
             stat= con.prepareStatement(INSERT);
@@ -62,14 +62,15 @@ public class ExamDAO extends MySQLDAO implements IExamDAO{
 	}
 
 	@Override
-	public boolean removeById(long id) {
+	public boolean removeById(Long id) {
 		// TODO Auto-generated method stub
 		return false;
 	}
 
 	@Override
-	public Exam getById(long id) {
+	public Exam getById(Long id) {
 		PreparedStatement stat=null;
+		Connection con =null;
 		ResultSet rs=null;
 		Exam t=null;
 		try{
@@ -118,6 +119,7 @@ public class ExamDAO extends MySQLDAO implements IExamDAO{
 
 	@Override
 	public List<Exam> getByStudyId(long id) {
+		Connection con =null;
 		PreparedStatement stat=null;
 		ResultSet rs=null;
 		List<Exam> t=new ArrayList<Exam>();

@@ -10,11 +10,10 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import com.solvd.connectionpool.MyConnectionPool;
-import com.solvd.university.dao.interfaces.ILibraryDAO;
+import com.solvd.university.dao.ILibraryDAO;
 import com.solvd.university.model.Library;
 
 public class LibraryDAO extends MySQLDAO implements ILibraryDAO {
-	private Connection con;
 	private static final String INSERT = "INSERT INTO Library(name,address) VALUES(?,?)";
 	private static final String DELETE = "DELETE FROM Library WHERE id = ?";
 	private static final String GETBYID = "SELECT * FROM Library WHERE id = ?";
@@ -26,7 +25,7 @@ public class LibraryDAO extends MySQLDAO implements ILibraryDAO {
 
 	@Override
 	public boolean save(Library b) {
-
+		Connection con =null;
 		PreparedStatement stat = null;
         try{
         	con=connection.getConnection();
@@ -61,8 +60,9 @@ public class LibraryDAO extends MySQLDAO implements ILibraryDAO {
 	}
 
 	@Override
-	public boolean removeById(long id) {
+	public boolean removeById(Long id) {
 		PreparedStatement stat = null;
+		Connection con =null;
         try{
         	con=connection.getConnection();
             stat= con.prepareStatement(DELETE);
@@ -90,9 +90,10 @@ public class LibraryDAO extends MySQLDAO implements ILibraryDAO {
 	}
 
 	@Override
-	public Library getById(long id) {
+	public Library getById(Long id) {
 		PreparedStatement stat=null;
 		ResultSet rs=null;
+		Connection con =null;
 		Library t=null;
 		try{
 			con=connection.getConnection();

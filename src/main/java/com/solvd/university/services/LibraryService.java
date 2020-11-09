@@ -1,6 +1,6 @@
 package com.solvd.university.services;
 
-import com.solvd.university.dao.interfaces.*;
+import com.solvd.university.dao.*;
 import com.solvd.university.model.*;
 
 public class LibraryService {

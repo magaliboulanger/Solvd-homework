@@ -1,6 +1,5 @@
 package com.solvd.university.model;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class Department extends AbstractEntity {

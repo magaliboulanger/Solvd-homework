@@ -10,6 +10,22 @@ public class Mark extends AbstractEntity {
 		this.mark = mark;
 		this.numberMark = numberMark;
 	}
+
+	public String getMark() {
+		return mark;
+	}
+
+	public void setMark(String mark) {
+		this.mark = mark;
+	}
+
+	public float getNumberMark() {
+		return numberMark;
+	}
+
+	public void setNumberMark(float numberMark) {
+		this.numberMark = numberMark;
+	}
 	
 	
 }

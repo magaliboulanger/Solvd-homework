@@ -9,6 +9,14 @@ public class Student extends Person {
 		this.universityIdentifier=ui;
 	}
 
+	public int getUniversityIdentifier() {
+		return universityIdentifier;
+	}
+
+	public void setUniversityIdentifier(int universityIdentifier) {
+		this.universityIdentifier = universityIdentifier;
+	}
+
 	
 	
 }

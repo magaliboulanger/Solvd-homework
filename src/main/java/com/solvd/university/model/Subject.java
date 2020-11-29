@@ -4,6 +4,14 @@ public class Subject extends AbstractEntity {
 	private String name;
 	private int hours;
 	private int credits;
+	private Department depto;
+	public Subject(long id, String name, int hours, int credits, Department d) {
+		super(id);
+		this.name = name;
+		this.hours = hours;
+		this.credits = credits;
+		this.depto=d;
+	}
 	public Subject(long id, String name, int hours, int credits) {
 		super(id);
 		this.name = name;
@@ -18,6 +26,12 @@ public class Subject extends AbstractEntity {
 	}
 	public int getHours() {
 		return hours;
+	}
+	public Department getDepto() {
+		return depto;
+	}
+	public void setDepto(Department depto) {
+		this.depto = depto;
 	}
 	public void setHours(int hours) {
 		this.hours = hours;

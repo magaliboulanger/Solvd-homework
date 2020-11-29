@@ -14,7 +14,7 @@ import com.solvd.university.dao.ISubjectDAO;
 import com.solvd.university.model.Subject;
 
 public class SubjectDAO extends MySQLDAO implements ISubjectDAO {
-	private static final String INSERT = "INSERT INTO Subject(name, hours, credits) VALUES(?,?,?)";
+	private static final String INSERT = "INSERT INTO Subject(name, hours, credits, department_id) VALUES(?,?,?,?)";
 	private static final String DELETE = "DELETE FROM Subject WHERE id = ?";
 	private static final String GETBYID = "SELECT * FROM Subject WHERE id = ?";
 	private Logger log = LogManager.getLogger(SubjectDAO.class);
@@ -34,6 +34,7 @@ public class SubjectDAO extends MySQLDAO implements ISubjectDAO {
             stat.setString(1, b.getName());
             stat.setInt(2, b.getHours() );
             stat.setInt(3, b.getCredits());
+            stat.setLong(4, b.getDepto().getId());
             if(stat.executeUpdate()==0){
               log.info("It may not have been saved.");
             }

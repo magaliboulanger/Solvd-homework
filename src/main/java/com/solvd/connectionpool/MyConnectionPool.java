@@ -15,19 +15,24 @@ import org.apache.logging.log4j.Logger;
 
 public class MyConnectionPool {
 
-	private final int MAX_SIZE;
+	private final int MAX_SIZE=10;
 	private AtomicInteger usedConnections;
 
 	private static Logger l= LogManager.getLogger(MyConnectionPool.class);
 	private BlockingQueue<Connection> connectionPool;//Instead Object will be a class that implements Connection
+	private static MyConnectionPool instanceMCP=null;
 
-
-	private MyConnectionPool(int size) {
-		MAX_SIZE=size;
+	private MyConnectionPool() {
+		
 		this.connectionPool=new ArrayBlockingQueue<Connection>(MAX_SIZE);
 		this.usedConnections.set(0);;
 	}
 
+	public static MyConnectionPool getInstance() {
+		if(instanceMCP==null)
+			instanceMCP = new MyConnectionPool();
+		return instanceMCP;
+	}
 
 	public Connection getConnection() throws InterruptedException{
 		synchronized(MyConnectionPool.class) {

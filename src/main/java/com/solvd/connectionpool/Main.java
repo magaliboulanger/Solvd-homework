@@ -13,7 +13,7 @@ public class Main {
 	private static Logger l= LogManager.getLogger(Main.class);
 	public static void main(String[] args ) {
 		ExecutorService ex=Executors.newFixedThreadPool(10);
-		MyConnectionPool pool=MyConnectionPool.getConnection();
+		MyConnectionPool pool = MyConnectionPool.getInstance();
 		Test1 t11 =new Test1(pool);
 		Test2 t21 =new Test2(pool);
 		Test1 t12 =new Test1(pool);

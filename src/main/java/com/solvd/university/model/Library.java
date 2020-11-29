@@ -5,9 +5,9 @@ import java.util.List;
 public class Library extends AbstractEntity {
 
 	private String name;
-	private String address;
+	private Address address;
 	private List<Book> books;
-	public Library(long id, String name, String address, List<Book> b) {
+	public Library(long id, String name, Address address, List<Book> b) {
 		super(id);
 		this.name = name;
 		this.address = address;
@@ -23,10 +23,10 @@ public class Library extends AbstractEntity {
 	public String toString() {
 		return "Library [name=" + name + ", address=" + address + ", books=" + books + "]";
 	}
-	public String getAddress() {
+	public Address getAddress() {
 		return address;
 	}
-	public void setAddress(String address) {
+	public void setAddress(Address address) {
 		this.address = address;
 	}
 	public List<Book> getBooks() {

@@ -18,7 +18,7 @@ public class University extends AbstractEntity {
 	private static Logger log = LogManager.getLogger(University.class);
 	
 	public static void main (String [] args ) {
-		MyConnectionPool mcp = new MyConnectionPool(10);
+		MyConnectionPool mcp = MyConnectionPool.getInstance();
 		
 		//DEPARTMENT SERVICE
 		IDepartmentDAO d = new DepartmentDAO(mcp);
@@ -49,7 +49,7 @@ public class University extends AbstractEntity {
 		books.add(b3);
 		books.add(b2);
 		books.add(b1);
-		Library l1= new Library(01, "Sarmiento", "street 123", books);
+		Library l1= new Library(01, "Sarmiento", new Address(0,"",0), books);
 		ILibraryDAO l=new LibraryDAO(mcp);
 		l.save(l1);
 		IBookDAO b= new BookDAO(mcp);
@@ -63,7 +63,7 @@ public class University extends AbstractEntity {
 		log.info(lib.toString());
 		
 		//STUDY SERVICE AND TEACH SERVICE
-		Student student=new Student(01, "John", "123456", "Street563");
+		Student student=new Student(01, "John", "123456", new Address(0,"",0), 248671);
 		Subject subject = new Subject(01, "Maths", 75, 5);
 		Teach teach = new Teach(01, t1, subject);
 		IExamDAO e=new ExamDAO(mcp);

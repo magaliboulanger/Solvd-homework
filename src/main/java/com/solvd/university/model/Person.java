@@ -3,8 +3,8 @@ package com.solvd.university.model;
 public class Person extends AbstractEntity{
 	private String name;
 	private String phone;
-	private String address;
-	public Person(long id, String name, String phone, String address) {
+	private Address address;
+	public Person(long id, String name, String phone, Address address) {
 		super(id);
 		this.name = name;
 		this.phone = phone;
@@ -22,10 +22,10 @@ public class Person extends AbstractEntity{
 	public void setPhone(String phone) {
 		this.phone = phone;
 	}
-	public String getAddress() {
+	public Address getAddress() {
 		return address;
 	}
-	public void setAddress(String address) {
+	public void setAddress(Address address) {
 		this.address = address;
 	}
 	

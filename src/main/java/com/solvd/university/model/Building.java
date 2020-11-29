@@ -6,11 +6,11 @@ import java.util.List;
 public class Building extends AbstractEntity  {
 
 	private String name;
-	private String location;
+	private Address location;
 	private Date creationDate;
 	private List<Room> rooms;
 	
-	public Building(long id, String name, String location, Date creationDate, List<Room> rooms) {
+	public Building(long id, String name, Address location, Date creationDate, List<Room> rooms) {
 		super(id);
 		this.name = name;
 		this.location = location;
@@ -26,11 +26,11 @@ public class Building extends AbstractEntity  {
 		this.name = name;
 	}
 
-	public String getLocation() {
+	public Address getLocation() {
 		return location;
 	}
 
-	public void setLocation(String location) {
+	public void setLocation(Address location) {
 		this.location = location;
 	}
 

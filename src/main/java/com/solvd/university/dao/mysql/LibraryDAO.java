@@ -20,7 +20,7 @@ public class LibraryDAO extends MySQLDAO implements ILibraryDAO {
 	private Logger log = LogManager.getLogger(LibraryDAO.class);
 	
 	@Override
-	public long save(Library b) {
+	public Library save(Library b) {
 		Connection con =null;
 		PreparedStatement stat = null;
         try{
@@ -34,10 +34,10 @@ public class LibraryDAO extends MySQLDAO implements ILibraryDAO {
               log.info("It may not have been saved.");
             }
             
-            return b.getId();
+            return b;
         } catch (SQLException | InterruptedException ex) {
            log.error(ex);
-           return -1;
+           return new Library();
         } finally {
             if (stat!=null){
                 try {

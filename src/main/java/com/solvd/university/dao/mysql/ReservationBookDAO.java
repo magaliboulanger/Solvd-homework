@@ -11,9 +11,9 @@ public class ReservationBookDAO extends MySQLDAO implements IReservationBookDAO{
 	
 
 	@Override
-	public long save(ReservationBook b) {
+	public ReservationBook save(ReservationBook b) {
 		// TODO Auto-generated method stub
-		return -1;
+		return new ReservationBook();
 	}
 
 	@Override

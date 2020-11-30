@@ -76,7 +76,7 @@ public class PersonDAO extends MySQLDAO implements IPersonDAO {
 	}
 
 	@Override
-	public long save(Person b) {
+	public Person save(Person b) {
 		Connection con =null;
 		PreparedStatement stat = null;
         try{
@@ -91,10 +91,10 @@ public class PersonDAO extends MySQLDAO implements IPersonDAO {
               log.info("It may not have been saved.");
             }
             
-            return b.getId();
+            return b;
         } catch (SQLException | InterruptedException ex) {
            log.error(ex);
-           return 0;
+           return new Person();
         } finally {
             if (stat!=null){
                 try {

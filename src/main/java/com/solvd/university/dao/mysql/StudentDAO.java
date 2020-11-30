@@ -20,7 +20,7 @@ public class StudentDAO extends MySQLDAO implements IStudentDAO{
 	private Logger log = LogManager.getLogger(StudentDAO.class);
 
 	@Override
-	public long save(Student b) {
+	public Student save(Student b) {
 		PreparedStatement stat = null;
 		Connection con =null;
         try{
@@ -32,10 +32,10 @@ public class StudentDAO extends MySQLDAO implements IStudentDAO{
               log.info("It may not have been saved.");
             }
             
-            return b.getId();
+            return b;
         } catch (SQLException | InterruptedException ex) {
            log.error(ex);
-           return -1;
+           return new Student();
         } finally {
             if (stat!=null){
                 try {

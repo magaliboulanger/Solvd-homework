@@ -5,6 +5,6 @@ import java.util.List;
 import com.solvd.university.model.Exam;
 
 public interface IExamDAO extends DAO<Exam, Long>{
-	long save(Exam b, long stuId);
+	Exam save(Exam b, long stuId);
 	List<Exam> getByStudyId(long id);
 }

@@ -39,7 +39,7 @@ public class MyConnectionPool {
 			{
 				try {
 					Properties prop = new Properties();
-					prop.load(new FileInputStream("main\\resources\\database.properties"));
+					prop.load(new FileInputStream("src/main/resources/database.properties"));
 					Class.forName(prop.getProperty("DRIVER")).newInstance();
 					connectionPool.put(DriverManager.getConnection(prop.getProperty("URL")+prop.getProperty("DB_NAME"),prop.getProperty("USER_NAME"), prop.getProperty("PASSWORD")));
 				} catch (InterruptedException | SQLException | InstantiationException | IllegalAccessException | ClassNotFoundException | IOException e) {

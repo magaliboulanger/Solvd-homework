@@ -23,7 +23,7 @@ public class DepartmentDAO extends MySQLDAO implements IDepartmentDAO{
 	
 
 	@Override
-	public long save(Department b) {
+	public Department save(Department b) {
 		PreparedStatement stat = null;
 		Connection con =null;
         try{
@@ -36,10 +36,10 @@ public class DepartmentDAO extends MySQLDAO implements IDepartmentDAO{
               log.info("It may not have been saved.");
             }
             
-            return b.getId();
+            return b;
         } catch (SQLException | InterruptedException ex) {
            log.error(ex);
-           return -1;
+           return new Department();
         } finally {
             if (stat!=null){
                 try {

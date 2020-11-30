@@ -23,7 +23,7 @@ public class TeachDAO extends MySQLDAO implements ITeachDAO {
 	private Logger log = LogManager.getLogger(TeachDAO.class);
 
 	@Override
-	public long save(Teach b) {
+	public Teach save(Teach b) {
 		Connection con =null;
 		PreparedStatement stat = null;
         try{
@@ -37,10 +37,10 @@ public class TeachDAO extends MySQLDAO implements ITeachDAO {
               log.info("It may not have been saved.");
             }
             
-            return b.getId();
+            return b;
         } catch (SQLException | InterruptedException ex) {
            log.error(ex);
-           return -1;
+           return new Teach();
         } finally {
             if (stat!=null){
                 try {

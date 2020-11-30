@@ -22,7 +22,7 @@ public class ExamDAO extends MySQLDAO implements IExamDAO{
 	private Logger log = LogManager.getLogger(ExamDAO.class);
 	
 	@Override
-	public long save(Exam b, long stuId) {
+	public Exam save(Exam b, long stuId) {
 		PreparedStatement stat = null;
 		Connection con =null;
         try{
@@ -36,10 +36,10 @@ public class ExamDAO extends MySQLDAO implements IExamDAO{
               log.info("It may not have been saved.");
             }
             
-            return b.getId();
+            return b;
         } catch (SQLException | InterruptedException ex) {
            log.error(ex);
-           return -1;
+           return new Exam();
         } finally {
             if (stat!=null){
                 try {

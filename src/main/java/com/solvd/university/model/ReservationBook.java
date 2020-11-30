@@ -14,6 +14,14 @@ public class ReservationBook extends AbstractEntity {
 		this.date = date;
 		this.end = end;
 	}
+	
+	public ReservationBook() {
+		super();
+		this.book=null;
+		this.date=null;
+		this.end=null;
+		this.student=null;
+	}
 	public Book getBook() {
 		return book;
 	}

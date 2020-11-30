@@ -14,6 +14,14 @@ public class Book extends AbstractEntity {
 		this.year = year;
 	}
 
+	public Book() {
+		super();
+		this.title = null;
+		this.author = null;
+		this.num_pages = 0;
+		this.year = 0;
+	}
+	
 	public String getTitle() {
 		return title;
 	}

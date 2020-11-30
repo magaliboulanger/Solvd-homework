@@ -15,6 +15,13 @@ public class ReservationRoom extends AbstractEntity {
 		this.start = start;
 		this.finish = finish;
 	}
+	public ReservationRoom() {
+		super();
+		this.r=null;
+		this.finish=null;
+		this.start=null;
+		this.t=null;
+	}
 	public Room getR() {
 		return r;
 	}

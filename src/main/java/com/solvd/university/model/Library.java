@@ -7,12 +7,21 @@ public class Library extends AbstractEntity {
 	private String name;
 	private Address address;
 	private List<Book> books;
+	
 	public Library(long id, String name, Address address, List<Book> b) {
 		super(id);
 		this.name = name;
 		this.address = address;
 		this.books=b;
 	}
+	
+	public Library() {
+		super();
+		this.name = null;
+		this.address = null;
+		this.books = null;
+	}
+	
 	public Library(long id, String name) {
 		super(id);
 		this.name = name;

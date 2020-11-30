@@ -9,6 +9,11 @@ public class Room extends AbstractEntity {
 		this.capacity = capacity;
 		this.number = number;
 	}
+	public Room() {
+		super();
+		this.capacity=0;
+		this.number=0;
+	}
 	public int getCapacity() {
 		return capacity;
 	}

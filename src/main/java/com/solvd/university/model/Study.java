@@ -12,6 +12,12 @@ public class Study  extends AbstractEntity {
 		this.teach = teach;
 		this.exams = exams;
 	}
+	public Study() {
+		super();
+		this.exams=null;
+		this.student=null;
+		this.teach=null;
+	}
 	public Teach getTeach() {
 		return teach;
 	}

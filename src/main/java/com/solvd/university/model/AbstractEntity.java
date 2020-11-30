@@ -9,7 +9,7 @@ public abstract class AbstractEntity {
 	}
 	
 	public AbstractEntity() {
-		this.id=-1;
+		this.id = 0;
 	}
 
 	public long getId() {

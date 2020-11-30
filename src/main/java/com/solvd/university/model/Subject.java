@@ -18,6 +18,13 @@ public class Subject extends AbstractEntity {
 		this.hours = hours;
 		this.credits = credits;
 	}
+	public Subject() {
+		super();
+		this.credits=0;
+		this.depto=null;
+		this.hours=0;
+		this.name=null;
+	}
 	public String getName() {
 		return name;
 	}

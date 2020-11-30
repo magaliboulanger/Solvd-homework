@@ -12,6 +12,7 @@ public class Person extends AbstractEntity{
 		this.address = address;
 		this.email=email;
 	}
+
 	public String getEmail() {
 		return email;
 	}
@@ -25,6 +26,7 @@ public class Person extends AbstractEntity{
 		this.email=email;
 	}
 	public Person() {
+		super();
 		this.address=null;
 		this.email=null;
 		this.name=null;

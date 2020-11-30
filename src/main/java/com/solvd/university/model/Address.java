@@ -9,5 +9,9 @@ public class Address extends AbstractEntity {
 		this.addr = addr;
 		this.coords = coor;
 	}
+	public Address() {
+		this.addr = null;
+		this.coords = 0;
+	}
 	
 }

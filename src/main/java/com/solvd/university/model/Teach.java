@@ -9,6 +9,11 @@ public class Teach extends AbstractEntity{
 		this.teacher = teacher;
 		this.subject = subject;
 	}
+	public Teach() {
+		super();
+		this.subject=null;
+		this.teacher=null;
+	}
 	public Teacher getTeacher() {
 		return teacher;
 	}

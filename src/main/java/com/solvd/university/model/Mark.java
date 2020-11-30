@@ -11,6 +11,11 @@ public class Mark extends AbstractEntity {
 		this.numberMark = numberMark;
 	}
 
+	public Mark () {
+		super();
+		this.mark=null;
+		this.numberMark=0;
+	}
 	public String getMark() {
 		return mark;
 	}

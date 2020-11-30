@@ -18,6 +18,14 @@ public class Building extends AbstractEntity  {
 		this.rooms = rooms;
 	}
 
+	public Building() {
+		super();
+		this.name = null; 
+		this.location = null;
+		this.creationDate = null;
+		this.rooms = null;
+	}
+	
 	public String getName() {
 		return name;
 	}

@@ -18,6 +18,10 @@ public class Student extends Person {
 		super();
 		this.universityIdentifier=ui;
 	}
+	public Student() {
+		super();
+		this.universityIdentifier=0;
+	}
 
 	public int getUniversityIdentifier() {
 		return universityIdentifier;

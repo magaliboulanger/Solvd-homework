@@ -5,10 +5,17 @@ import java.util.List;
 public class Department extends AbstractEntity {
 	private String name;
 	private List<Teacher> teachers;
+	
 	public Department(long id, String name, List<Teacher> teachers) {
 		super(id);
 		this.name = name;
 		this.teachers=teachers;
+	}
+	
+	public Department() {
+		super();
+		this.name = null;
+		this.teachers = null;
 	}
 	public String getName() {
 		return name;

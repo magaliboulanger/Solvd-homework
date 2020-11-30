@@ -1,22 +1,23 @@
 package com.solvd.university.services;
 
 import com.solvd.university.dao.*;
+import com.solvd.university.dao.mysql.*;
 import com.solvd.university.model.Department;
 
 public class DepartmentService {
-	private ITeacherDAO Tdao;
-	private IDepartmentDAO Ddao;
+	private TeacherService ts;
+	private IDepartmentDAO dDao;
 	
-	public DepartmentService(ITeacherDAO tdao, IDepartmentDAO d) {
+	public DepartmentService() {
 		super();
-		Ddao = d; 
-		Tdao = tdao;
+		this.dDao = new DepartmentDAO(); 
+		this.ts = new TeacherService();
 	}
 
 	public Department getById(long id) {
 		
-		Department d = Ddao.getById(id);
-		d.setTeachers(Tdao.getByDepartmentId(d.getId()));
+		Department d = dDao.getById(id);
+		d.setTeachers(ts.getByDepartmentId(d.getId()));
 		return d;
 		
 	}

@@ -21,10 +21,7 @@ public class StudyDAO extends MySQLDAO implements IStudyDAO {
 	private static final String GETSTUID = "SELECT student_id FROM Study WHERE id = ?";
 	private static final String GETTEAID = "SELECT teach_id FROM Study WHERE id = ?";
 	private Logger log = LogManager.getLogger(StudyDAO.class);
-	public StudyDAO(MyConnectionPool connection) {
-		super(connection);
-		// TODO Auto-generated constructor stub
-	}
+	
 
 	@Override
 	public long save(Study b) {

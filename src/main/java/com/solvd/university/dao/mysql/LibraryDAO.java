@@ -18,11 +18,7 @@ public class LibraryDAO extends MySQLDAO implements ILibraryDAO {
 	private static final String DELETE = "DELETE FROM Library WHERE id = ?";
 	private static final String GETBYID = "SELECT * FROM Library WHERE id = ?";
 	private Logger log = LogManager.getLogger(LibraryDAO.class);
-	public LibraryDAO(MyConnectionPool connection) {
-		super(connection);
-		// TODO Auto-generated constructor stub
-	}
-
+	
 	@Override
 	public long save(Library b) {
 		Connection con =null;
@@ -32,7 +28,7 @@ public class LibraryDAO extends MySQLDAO implements ILibraryDAO {
             stat= con.prepareStatement(INSERT);
            
             stat.setString(1, b.getName());
-            stat.setString(2, b.getAddress());
+            stat.setLong(2, b.getAddress().getId());
       
             if(stat.executeUpdate()==0){
               log.info("It may not have been saved.");
@@ -101,7 +97,7 @@ public class LibraryDAO extends MySQLDAO implements ILibraryDAO {
 			stat.setLong(1,id);
 			rs=stat.executeQuery();
 			if(rs.next()){
-				t = new Library(rs.getLong("id"),rs.getString("name"),rs.getString("address"),null);
+				t = new Library(rs.getLong("id"),rs.getString("name"));
 			}
 			else {
 				log.info("Cannot find Teacher with id= "+id);

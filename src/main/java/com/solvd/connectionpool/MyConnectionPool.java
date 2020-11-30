@@ -15,17 +15,15 @@ import org.apache.logging.log4j.Logger;
 
 public class MyConnectionPool {
 
+	private static Logger l= LogManager.getLogger(MyConnectionPool.class);
 	private final int MAX_SIZE=10;
 	private AtomicInteger usedConnections;
-
-	private static Logger l= LogManager.getLogger(MyConnectionPool.class);
-	private BlockingQueue<Connection> connectionPool;//Instead Object will be a class that implements Connection
+	private BlockingQueue<Connection> connectionPool;
 	private static MyConnectionPool instanceMCP=null;
 
 	private MyConnectionPool() {
-		
 		this.connectionPool=new ArrayBlockingQueue<Connection>(MAX_SIZE);
-		this.usedConnections.set(0);;
+		this.usedConnections.set(0);
 	}
 
 	public static MyConnectionPool getInstance() {

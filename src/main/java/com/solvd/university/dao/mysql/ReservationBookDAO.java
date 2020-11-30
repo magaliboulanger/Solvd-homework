@@ -8,10 +8,7 @@ import com.solvd.university.model.ReservationBook;
 
 public class ReservationBookDAO extends MySQLDAO implements IReservationBookDAO{
 
-	public ReservationBookDAO(MyConnectionPool connection) {
-		super(connection);
-		// TODO Auto-generated constructor stub
-	}
+	
 
 	@Override
 	public long save(ReservationBook b) {

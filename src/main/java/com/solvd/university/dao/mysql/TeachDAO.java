@@ -21,10 +21,6 @@ public class TeachDAO extends MySQLDAO implements ITeachDAO {
 	private static final String GETTEID = "SELECT teacher_id FROM Teach WHERE id = ?";
 	private static final String GETSUID = "SELECT subject_id FROM Teach WHERE id = ?";
 	private Logger log = LogManager.getLogger(TeachDAO.class);
-	public TeachDAO(MyConnectionPool connection) {
-		super(connection);
-		// TODO Auto-generated constructor stub
-	}
 
 	@Override
 	public long save(Teach b) {

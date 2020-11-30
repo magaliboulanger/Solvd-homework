@@ -20,11 +20,7 @@ public class ExamDAO extends MySQLDAO implements IExamDAO{
 	private static final String GETBYID = "SELECT * FROM Exam WHERE id = ?";
 	private static final String GETBYSTUDYID = "SELECT * FROM Exam WHERE study_id = ?";
 	private Logger log = LogManager.getLogger(ExamDAO.class);
-	public ExamDAO(MyConnectionPool connection) {
-		super(connection);
-		// TODO Auto-generated constructor stub
-	}
-
+	
 	@Override
 	public long save(Exam b, long stuId) {
 		PreparedStatement stat = null;

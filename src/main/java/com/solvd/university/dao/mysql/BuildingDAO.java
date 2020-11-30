@@ -9,9 +9,7 @@ import com.solvd.university.model.Building;
 public class BuildingDAO extends MySQLDAO implements IBuildingDAO{
 
 
-	public BuildingDAO(MyConnectionPool connection) {
-		super(connection);
-		// TODO Auto-generated constructor stub
+	public BuildingDAO() {
 	}
 
 	@Override

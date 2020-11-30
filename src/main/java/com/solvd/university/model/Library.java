@@ -13,6 +13,10 @@ public class Library extends AbstractEntity {
 		this.address = address;
 		this.books=b;
 	}
+	public Library(long id, String name) {
+		super(id);
+		this.name = name;
+	}
 	public String getName() {
 		return name;
 	}

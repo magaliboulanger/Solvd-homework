@@ -15,16 +15,12 @@ import com.solvd.university.dao.ITeacherDAO;
 import com.solvd.university.model.Teacher;
 
 public class TeacherDAO extends MySQLDAO  implements ITeacherDAO{
-	private static final String INSERT = "INSERT INTO Teacher(name,department_id,phone_number,email) VALUES(?,?,?,?)";
+	private static final String INSERT = "INSERT INTO Teacher(department_id) VALUES(?)";
 	private static final String DELETE = "DELETE FROM Teacher WHERE id = ?";
 	private static final String GETBYID = "SELECT * FROM Teacher WHERE id = ?";
 	private static final String GETBYDEPTOID = "SELECT * FROM Teacher WHERE department_id = ?";
 	private Logger log = LogManager.getLogger(TeacherDAO.class);
-	public TeacherDAO(MyConnectionPool connection) {
-		
-		super(connection);
-		// TODO Auto-generated constructor stub
-	}
+
 
 	@Override
 	public long save(Teacher b, long idDepartment) {
@@ -34,10 +30,7 @@ public class TeacherDAO extends MySQLDAO  implements ITeacherDAO{
         	con=connection.getConnection();
             stat= con.prepareStatement(INSERT);
            
-            stat.setString(1, b.getName());
-            stat.setLong(2, idDepartment);
-            stat.setString(3, b.getPhone());
-            stat.setString(4, b.getEmail());
+            stat.setLong(1, idDepartment);
       
             if(stat.executeUpdate()==0){
               log.info("It may not have been saved.");
@@ -46,7 +39,7 @@ public class TeacherDAO extends MySQLDAO  implements ITeacherDAO{
             return b.getId();
         } catch (SQLException | InterruptedException ex) {
            log.error(ex);
-           return -1;
+           return 0;
         } finally {
             if (stat!=null){
                 try {

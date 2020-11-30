@@ -20,10 +20,7 @@ public class DepartmentDAO extends MySQLDAO implements IDepartmentDAO{
 	private static final String DELETE = "DELETE FROM Department WHERE id = ?";
 	private static final String GETBYID = "SELECT * FROM Department WHERE id = ?";
 	private Logger log = LogManager.getLogger(DepartmentDAO.class);
-	public DepartmentDAO(MyConnectionPool connection) {
-		super(connection);
-		// TODO Auto-generated constructor stub
-	}
+	
 
 	@Override
 	public long save(Department b) {

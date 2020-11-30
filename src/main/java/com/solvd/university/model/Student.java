@@ -4,8 +4,18 @@ public class Student extends Person {
 
 	private int universityIdentifier;
 	
-	public Student(long id, String name, String phone, Address address, int ui) {
-		super(id, name, phone, address);
+	public Student(long id, String name, String phone, Address address, int ui, String email) {
+		super(id, name, phone, address, email);
+		this.universityIdentifier=ui;
+	}
+
+	public Student(long id, String name, String phone, int ui, String email) {
+		super(id, name, phone, email);
+		this.universityIdentifier=ui;
+	}
+
+	public Student(int ui) {
+		super();
 		this.universityIdentifier=ui;
 	}
 

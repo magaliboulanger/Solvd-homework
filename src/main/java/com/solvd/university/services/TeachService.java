@@ -4,20 +4,20 @@ import com.solvd.university.dao.*;
 import com.solvd.university.model.Teach;
 
 public class TeachService {
-	private ITeacherDAO Tdao;
-	private ITeachDAO Tedao;
-	private ISubjectDAO Sdao;
-	public TeachService(ITeacherDAO tdao,ITeachDAO TeDAO, ISubjectDAO sdao) {
+	private ITeacherDAO tdao;
+	private ITeachDAO tedao;
+	private ISubjectDAO sdao;
+	public TeachService(ITeacherDAO tdao,ITeachDAO teDAO, ISubjectDAO sdao) {
 		super();
-		Tdao = tdao;
-		Sdao = sdao;
-		Tedao = TeDAO;
+		tdao = tdao;
+		sdao = sdao;
+		tedao = teDAO;
 	}
 	
 	public Teach getById(long id) {
-		Teach out=Tedao.getById(id);
-		out.setSubject(Sdao.getById(Tedao.getSubjIdById(id)));
-		out.setTeacher(Tdao.getById(Tedao.getTeacherIdById(id)));
+		Teach out=tedao.getById(id);
+		out.setSubject(sdao.getById(tedao.getSubjIdById(id)));
+		out.setTeacher(tdao.getById(tedao.getTeacherIdById(id)));
 		return out;
 	}
 }

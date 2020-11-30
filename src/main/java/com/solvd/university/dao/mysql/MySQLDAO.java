@@ -4,12 +4,6 @@ import com.solvd.connectionpool.MyConnectionPool;
 
 public abstract class MySQLDAO {
 
-	protected MyConnectionPool connection;
-
-	public MySQLDAO(MyConnectionPool connection) {
-		this.connection = connection;
-	}
-	
-	
+	protected MyConnectionPool connection = MyConnectionPool.getInstance();
 	
 }

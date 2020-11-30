@@ -8,11 +8,7 @@ import com.solvd.university.model.Mark;
 
 public class MarkDAO extends MySQLDAO implements IMarkDAO {
 
-	public MarkDAO(MyConnectionPool connection) {
-		super(connection);
-		// TODO Auto-generated constructor stub
-	}
-
+	
 	@Override
 	public long save(Mark b) {
 		// TODO Auto-generated method stub

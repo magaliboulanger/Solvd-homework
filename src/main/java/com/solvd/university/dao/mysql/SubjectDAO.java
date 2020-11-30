@@ -18,10 +18,7 @@ public class SubjectDAO extends MySQLDAO implements ISubjectDAO {
 	private static final String DELETE = "DELETE FROM Subject WHERE id = ?";
 	private static final String GETBYID = "SELECT * FROM Subject WHERE id = ?";
 	private Logger log = LogManager.getLogger(SubjectDAO.class);
-	public SubjectDAO(MyConnectionPool connection) {
-		super(connection);
-		// TODO Auto-generated constructor stub
-	}
+
 
 	@Override
 	public long save(Subject b) {

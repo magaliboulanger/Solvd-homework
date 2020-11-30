@@ -17,7 +17,7 @@ public class PersonDAO extends MySQLDAO implements IPersonDAO {
 	private static final String INSERT = "INSERT INTO Person(name, phone, email, address_id) VALUES(?,?,?,?)";
 	private static final String DELETE = "DELETE FROM Person WHERE id = ?";
 	private static final String GETBYID = "SELECT * FROM Person WHERE id = ?";
-	private static final String GETADDRID = "SELECT * FROM Person WHERE address_id = ?";
+	private static final String GETADDRID = "SELECT address_id FROM Person WHERE id = ?";
 	private Logger log = LogManager.getLogger(TeacherDAO.class);
 	@Override
 	public boolean removeById(Long id) {
@@ -113,9 +113,47 @@ public class PersonDAO extends MySQLDAO implements IPersonDAO {
 	}
 
 	@Override
-	public long getAddressId() {
-		// TODO Auto-generated method stub
-		return 0;
+	public long getAddressId(Long idPerson) {
+		PreparedStatement stat=null;
+		ResultSet rs=null;
+		Connection con =null;
+		Long t=null;
+		try{
+			con=connection.getConnection();
+			stat=con.prepareStatement(GETADDRID);
+			stat.setLong(1,idPerson);
+			rs=stat.executeQuery();
+			if(rs.next()){
+				t = rs.getLong("address_id");
+			}
+			else {
+				log.info("Cannot find Person with id= "+idPerson);
+			}
+		}catch (SQLException | InterruptedException ex){
+			log.error(ex);
+		}finally{
+			if(rs!=null){
+				try{
+					rs.close();
+				} catch (SQLException ex) {
+					log.error(ex);
+				}
+			}
+			if(stat!= null){
+				try{
+					stat.close();
+				} catch (SQLException ex) {
+					log.error(ex);
+				}
+			}
+			 try {
+					connection.releaseConnection(con);
+				} catch (InterruptedException e) {
+					// TODO Auto-generated catch block
+					log.error(e);
+				}
+		}
+		return t;
 	}
 
 	

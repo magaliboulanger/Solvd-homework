@@ -9,7 +9,6 @@ public class DepartmentService {
 	private IDepartmentDAO dDao;
 	
 	public DepartmentService() {
-		super();
 		this.dDao = new DepartmentDAO(); 
 		this.ts = new TeacherService();
 	}
@@ -17,8 +16,8 @@ public class DepartmentService {
 	public Department getById(long id) {
 		
 		Department d = dDao.getById(id);
-		d.setTeachers(ts.getByDepartmentId(d.getId()));
+		d.setTeachers(ts.getTeachersByDepartment(id));
 		return d;
-		
+		 
 	}
 }

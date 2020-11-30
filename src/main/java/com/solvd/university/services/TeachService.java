@@ -1,17 +1,18 @@
 package com.solvd.university.services;
 
 import com.solvd.university.dao.*;
+import com.solvd.university.dao.mysql.*;
 import com.solvd.university.model.Teach;
 
 public class TeachService {
 	private ITeacherDAO tdao;
 	private ITeachDAO tedao;
 	private ISubjectDAO sdao;
-	public TeachService(ITeacherDAO tdao,ITeachDAO teDAO, ISubjectDAO sdao) {
+	public TeachService() {
 		super();
-		tdao = tdao;
-		sdao = sdao;
-		tedao = teDAO;
+		tdao = new TeacherDAO();
+		sdao =  new SubjectDAO();
+		tedao = new TeachDAO();
 	}
 	
 	public Teach getById(long id) {

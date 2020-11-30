@@ -6,7 +6,7 @@ import com.solvd.university.model.*;
 
 public class StudyService {
 	private ITeachDAO tdao;
-	private ITeacherDAO tedao;
+	private TeacherService ts;
 	private IExamDAO edao;
 	private IStudentDAO sdao;
 	private ISubjectDAO sudao;
@@ -16,12 +16,12 @@ public class StudyService {
 		edao = new ExamDAO();
 		sdao = new StudentDAO();
 		stuDAO = new StudyDAO();
-		tedao= new TeacherDAO();
+		ts= new TeacherService();
 		sudao = new SubjectDAO();
 	}
 	public Study getById(long id) {
 		Study out =stuDAO.getById(id);
-		TeachService t=new TeachService(tedao, tdao,sudao);
+		TeachService t=new TeachService();
 		out.setTeach(t.getById(stuDAO.getTeachId(id)));
 		out.setStudent(sdao.getById(stuDAO.getStudentId(id)));
 		out.setExams(edao.getByStudyId(id));

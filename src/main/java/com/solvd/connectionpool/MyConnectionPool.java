@@ -23,6 +23,7 @@ public class MyConnectionPool {
 
 	private MyConnectionPool() {
 		this.connectionPool=new ArrayBlockingQueue<Connection>(MAX_SIZE);
+		this.usedConnections = new AtomicInteger();
 		this.usedConnections.set(0);
 	}
 
@@ -38,7 +39,7 @@ public class MyConnectionPool {
 			{
 				try {
 					Properties prop = new Properties();
-					prop.load(new FileInputStream("database.properties"));
+					prop.load(new FileInputStream("main\\resources\\database.properties"));
 					Class.forName(prop.getProperty("DRIVER")).newInstance();
 					connectionPool.put(DriverManager.getConnection(prop.getProperty("URL")+prop.getProperty("DB_NAME"),prop.getProperty("USER_NAME"), prop.getProperty("PASSWORD")));
 				} catch (InterruptedException | SQLException | InstantiationException | IllegalAccessException | ClassNotFoundException | IOException e) {
@@ -64,7 +65,12 @@ public class MyConnectionPool {
 
 	public void closeAll() {
 		connectionPool.stream().filter(c->c!=null).forEach(c->{
-			//c.close();
+			try {
+				c.close();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 		});
 		connectionPool.clear();
 		usedConnections.set(0);;

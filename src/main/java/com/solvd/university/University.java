@@ -34,7 +34,7 @@ public class University extends AbstractEntity {
 		t.save(t3,01);
 		t.save(t2,01);
 		t.save(t1,01);
-		DepartmentService ds=new DepartmentService(t,d);
+		DepartmentService ds=new DepartmentService();
 		Department dept = ds.getById(01);
 		log.info(dept.toString());
 		
@@ -49,13 +49,13 @@ public class University extends AbstractEntity {
 		books.add(b2);
 		books.add(b1);
 		Library l1= new Library(01, "Sarmiento", new Address(0,"",0), books);
-		ILibraryDAO l=new LibraryDAO(mcp);
+		ILibraryDAO l=new LibraryDAO();
 		l.save(l1);
-		IBookDAO b= new BookDAO(mcp);
+		IBookDAO b= new BookDAO();
 		b.save(b1,01);
 		b.save(b2,01);
 		b.save(b3,01);
-		LibraryService ls= new LibraryService(b,l);
+		LibraryService ls= new LibraryService();
 		Library lib=ls.getById(1);
 
 		log.info("library service");
@@ -65,7 +65,7 @@ public class University extends AbstractEntity {
 		Student student=new Student(01, "John", "123456", 248671,"student@gmail.com");
 		Subject subject = new Subject(01, "Maths", 75, 5);
 		Teach teach = new Teach(01, t1, subject);
-		IExamDAO e=new ExamDAO(mcp);
+		IExamDAO e=new ExamDAO();
 		Exam e1=new Exam(1,"A",new Date());
 		Exam e2=new Exam(2,"C",new Date());
 		Exam e3=new Exam(3,"F",new Date());
@@ -74,21 +74,21 @@ public class University extends AbstractEntity {
 		exams.add(e2);
 		exams.add(e1);
 		Study study=new Study(01,student,teach,exams);
-		IStudyDAO sdao=new StudyDAO(mcp);
+		IStudyDAO sdao=new StudyDAO();
 		sdao.save(study);
 		e.save(e1, 01);
 		e.save(e2, 01);
 		e.save(e3, 01);
-		IStudyDAO stdao=new StudyDAO(mcp);
+		IStudyDAO stdao=new StudyDAO();
 		stdao.save(study);
-		ISubjectDAO subdao=new SubjectDAO(mcp);
+		ISubjectDAO subdao=new SubjectDAO();
 		subdao.save(subject);
-		ITeachDAO teachdao=new TeachDAO(mcp);
+		ITeachDAO teachdao=new TeachDAO();
 		teachdao.save(teach);
-		IStudentDAO studentdao=new StudentDAO(mcp);
+		IStudentDAO studentdao=new StudentDAO();
 		studentdao.save(student);
 		
-		StudyService stuserv = new StudyService (teachdao, subdao, t, e, studentdao, stdao);
+		StudyService stuserv = new StudyService ();
 		Study out=stuserv.getById(01);
 		log.info(out.toString());
 		}

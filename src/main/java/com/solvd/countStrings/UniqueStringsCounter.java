@@ -12,7 +12,6 @@ import com.solvd.connectionpool.MyConnectionPool;
 
 public class UniqueStringsCounter {
 
-
 	private static Logger l= LogManager.getLogger(UniqueStringsCounter.class);
 	public static void main(String [] args) {
 		Map<String, Integer> map = new HashMap<String,Integer>();
@@ -28,7 +27,6 @@ public class UniqueStringsCounter {
 			FileUtils.writeStringToFile(result,"The number of non-repeated words in the file is: "+ map.size()+ ", and the number of occurrences of each word: "+ map.toString(), null);
 			
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			l.error(e);
 		}
 	}

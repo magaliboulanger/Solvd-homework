@@ -3,19 +3,24 @@ package com.solvd.university.model;
 public class Address extends AbstractEntity {
 
 	private String addr;
-	private int coords;
-	public Address(long id, String addr, int coor) {
+	private float coordslat;
+	private float coordslon;
+	public Address(long id, String addr, float coor,  float coorlo) {
 		super(id);
 		this.addr = addr;
-		this.coords = coor;
+		this.coordslat = coor;
+		this.coordslon = coorlo;
 	}
+
 	@Override
 	public String toString() {
-		return "Address [addr=" + addr + ", coords=" + coords + "]";
+		return "Address [addr=" + addr + ", coordslat=" + coordslat + ", coordslon=" + coordslon + "]";
 	}
+
 	public Address() {
 		this.addr = null;
-		this.coords = 0;
+		this.coordslat = 0;
+		this.coordslon = 0;
 	}
 	public String getAddr() {
 		return addr;
@@ -23,11 +28,18 @@ public class Address extends AbstractEntity {
 	public void setAddr(String addr) {
 		this.addr = addr;
 	}
-	public int getCoords() {
-		return coords;
+	public float getCoordslat() {
+		return coordslat;
 	}
-	public void setCoords(int coords) {
-		this.coords = coords;
+	public void setCoordslat(float coordslat) {
+		this.coordslat = coordslat;
 	}
+	public float getCoordslon() {
+		return coordslon;
+	}
+	public void setCoordslon(float coordslon) {
+		this.coordslon = coordslon;
+	}
+	
 	
 }

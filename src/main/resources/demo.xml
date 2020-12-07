@@ -1,34 +1,37 @@
 <?xml version = "1.0"?>
-<class>
-   <library id = "01" >
-      <name>Sarmiento</name>
-      <address>
-      	<place> Streeet 123 </place>
-      	<coords> -37.30859556521288, -59.143389395233065 </coords>
-      </address>
-      <books>
-      	<book>
-      		<title>Romeo and Juliet</title>
-      		<author>William Shakespeare</author>
-      		<numPages>500</numPages>
-      		<year>1597</year>
-      	</book>
-      	<book>
-      		<title>Hamlet</title>
-      		<author>William Shakespeare</author>
-      		<numPages>400</numPages>
-      		<year>1603</year>
-      	</book>
-      	<book>
-      		<title>IGCSE Biology</title>
-      		<author>D.G. Mackean</author>
-      		<numPages>300</numPages>
-      		<year>2002</year>
-      	</book>
-      
-      
-      </books>
-   </library>
+
+<library idlib="01">
+	<name>Sarmiento</name>
+	<address idaddr="52">
+		<place> Street 123 </place>
+		<coords>
+			<lat>-37.30859556521288</lat>
+			<lon>-59.143389395233065 </lon>
+		</coords>
+	</address>
+
+	<book idbook="01">
+		<title>Romeo and Juliet</title>
+		<author>William Shakespeare</author>
+		<numPages>500</numPages>
+		<year>1597</year>
+	</book>
+	<book idbook="02">
+		<title>Hamlet</title>
+		<author>William Shakespeare</author>
+		<numPages>400</numPages>
+		<year>1603</year>
+	</book>
+	<book idbook="03">
+		<title>IGCSE Biology</title>
+		<author>D.G. Mackean</author>
+		<numPages>300</numPages>
+		<year>2002</year>
+	</book>
+
+
+
+</library>
+
    
    
-</class>

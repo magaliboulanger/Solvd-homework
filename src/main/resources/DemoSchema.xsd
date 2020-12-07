@@ -1,0 +1,62 @@
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+
+	<xs:element name="name" type="xs:string" />
+	<xs:element name="title" type="xs:string" />
+	<xs:element name="author" type="xs:string" />
+	<xs:element name="numPages" type="xs:integer" />
+	<xs:element name="year" type="xs:integer" />
+	<xs:element name="place" type="xs:string" />
+	<xs:element name="lat" type="xs:decimal" />
+	<xs:element name="lon" type="xs:decimal" />
+
+
+	<xs:attribute name="idbook" type="xs:long" />
+	<xs:attribute name="idlib" type="xs:long" />
+	<xs:attribute name="idaddr" type="xs:long" />
+
+
+	<xs:element name="coords">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="lat" />
+				<xs:element ref="lon" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+
+	<xs:element name="address">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="place" />
+				<xs:element ref="coords" />
+			</xs:sequence>
+			<xs:attribute ref="idaddr" use="required" />
+		</xs:complexType>
+	</xs:element>
+
+	<xs:element name="book">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="title" />
+				<xs:element ref="author" />
+				<xs:element ref="numPages" />
+				<xs:element ref="year" />
+			</xs:sequence>
+			<xs:attribute ref="idbook" use="required" />
+		</xs:complexType>
+	</xs:element>
+
+	<xs:element name="library">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="name" />
+				<xs:element ref="address" />
+				<xs:element ref="book" maxOccurs="unbounded" />
+			</xs:sequence>
+			<xs:attribute ref="idlib" use="required" />
+		</xs:complexType>
+	</xs:element>
+
+
+</xs:schema>

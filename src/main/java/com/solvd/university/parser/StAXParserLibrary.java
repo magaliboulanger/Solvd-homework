@@ -1,4 +1,4 @@
-package com.solvd.university.parser.stax;
+package com.solvd.university.parser;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;

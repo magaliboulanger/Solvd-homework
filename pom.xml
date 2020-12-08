@@ -63,10 +63,15 @@
 		    <artifactId>jackson-databind</artifactId>
 		    <version>2.10.0.pr1</version>
 		</dependency>
-	  	<dependency>
-	   		<groupId>org.mybatis</groupId>
-	   		<artifactId>mybatis</artifactId>
-	   		<version>3.5.4</version>
+		<dependency>
+			<groupId>org.mybatis</groupId>
+			<artifactId>mybatis</artifactId>
+			<version>3.5.6</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.ibatis</groupId>
+			<artifactId>ibatis-sqlmap</artifactId>
+			<version>2.3.4.726</version>
 		</dependency>
   </dependencies>
 

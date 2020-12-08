@@ -1,1 +1,29 @@
-{"id":1,"name":"Argentina","cities":[{"id":1,"name":"Mar del plata","idCountry":1},{"id":2,"name":"Necochea","idCountry":1},{"id":3,"name":"Tandil","idCountry":1}]}
+{
+  "id" : 1,
+  "name" : "Sarm",
+  "address" : {
+    "id" : 1,
+    "addr" : "street 456",
+    "coordslat" : -35.345,
+    "coordslon" : -58.848
+  },
+  "books" : [ {
+    "id" : 3,
+    "title" : "Title 3",
+    "author" : "Author 3",
+    "num_pages" : 150,
+    "year" : 2003
+  }, {
+    "id" : 2,
+    "title" : "Title 2",
+    "author" : "Author 2",
+    "num_pages" : 450,
+    "year" : 2000
+  }, {
+    "id" : 1,
+    "title" : "Title 1",
+    "author" : "Author 1",
+    "num_pages" : 100,
+    "year" : 2010
+  } ]
+}

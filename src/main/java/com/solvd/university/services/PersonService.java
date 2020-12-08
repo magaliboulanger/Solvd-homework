@@ -11,7 +11,6 @@ public class PersonService {
 	
 	public PersonService() {
 		pdao = new PersonDAO();
-		adao = new AddressDAO();
 	}
 	
 	public Person getById(Long id) {

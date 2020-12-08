@@ -1,9 +1,21 @@
 package com.solvd.university.model;
 
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+
+
+@XmlRootElement(name="address")
+@XmlAccessorType(XmlAccessType.FIELD)
 public class Address extends AbstractEntity {
 
+	@XmlElement(name="place") 
 	private String addr;
+	@XmlElement(name="lat") 
 	private float coordslat;
+	@XmlElement(name="lon") 
 	private float coordslon;
 	public Address(long id, String addr, float coor,  float coorlo) {
 		super(id);

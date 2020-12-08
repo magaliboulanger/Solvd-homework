@@ -15,7 +15,6 @@ public class TeacherService {
 	public TeacherService() {
 		this.tdao = new TeacherDAO();
 		this.pserv = new PersonService();
-		this.adao = new AddressDAO();
 	}
 	
 	public Teacher getById(Long id) {

@@ -13,7 +13,6 @@ public class StudentService {
 	public StudentService() {
 		this.sdao = new StudentDAO();
 		this.pserv = new PersonService();
-		this.adao = new AddressDAO();
 	}
 	
 	public Student getById(Long id) {

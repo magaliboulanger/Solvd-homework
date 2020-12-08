@@ -1,14 +1,23 @@
 package com.solvd.university.model;
 
+import javax.xml.bind.annotation.XmlAccessorType;
+
+import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAttribute;  
 import javax.xml.bind.annotation.XmlElement;  
-import javax.xml.bind.annotation.XmlRootElement;  
-@XmlRootElement 
+import javax.xml.bind.annotation.XmlRootElement; 
+
+
+@XmlRootElement(name="book")
+@XmlAccessorType(XmlAccessType.FIELD)
 public class Book extends AbstractEntity {
-	
+	@XmlElement(name="title") 
 	private String title;
+	@XmlElement(name="author") 
 	private String author;
+	@XmlElement(name="numPages") 
 	private int num_pages;
+	@XmlElement(name="year") 
 	private int year;
 	
 	public Book(long id, String title, String author, int num_pages, int year) {
@@ -27,7 +36,7 @@ public class Book extends AbstractEntity {
 		this.year = 0;
 	}
 	
-	@XmlElement(name="title") 
+	
 	public String getTitle() {
 		return title;
 	}
@@ -41,7 +50,6 @@ public class Book extends AbstractEntity {
 		this.title = title;
 	}
 
-	@XmlElement(name="author") 
 	public String getAuthor() {
 		return author;
 	}
@@ -50,7 +58,7 @@ public class Book extends AbstractEntity {
 		this.author = author;
 	}
 
-	@XmlElement(name="numPages") 
+	
 	public int getNum_pages() {
 		return num_pages;
 	}
@@ -59,7 +67,7 @@ public class Book extends AbstractEntity {
 		this.num_pages = num_pages;
 	}
 
-	@XmlElement(name="year") 
+	
 	public int getYear() {
 		return year;
 	}

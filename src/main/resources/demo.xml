@@ -1,37 +1,27 @@
-<?xml version = "1.0"?>
-
-<library idlib="01">
-	<name>Sarmiento</name>
-	<address idaddr="52">
-		<place> Street 123 </place>
-		<coords>
-			<lat>-37.30859556521288</lat>
-			<lon>-59.143389395233065 </lon>
-		</coords>
-	</address>
-
-	<book idbook="01">
-		<title>Romeo and Juliet</title>
-		<author>William Shakespeare</author>
-		<numPages>500</numPages>
-		<year>1597</year>
-	</book>
-	<book idbook="02">
-		<title>Hamlet</title>
-		<author>William Shakespeare</author>
-		<numPages>400</numPages>
-		<year>1603</year>
-	</book>
-	<book idbook="03">
-		<title>IGCSE Biology</title>
-		<author>D.G. Mackean</author>
-		<numPages>300</numPages>
-		<year>2002</year>
-	</book>
-
-
-
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<library id="1">
+    <name>Sarm</name>
+    <address id="1">
+        <place>street 456</place>
+        <lat>-35.345</lat>
+        <lon>-58.848</lon>
+    </address>
+    <book id="3">
+        <title>Title 3</title>
+        <author>Author 3</author>
+        <numPages>150</numPages>
+        <year>2003</year>
+    </book>
+    <book id="2">
+        <title>Title 2</title>
+        <author>Author 2</author>
+        <numPages>450</numPages>
+        <year>2000</year>
+    </book>
+    <book id="1">
+        <title>Title 1</title>
+        <author>Author 1</author>
+        <numPages>100</numPages>
+        <year>2010</year>
+    </book>
 </library>
-
-   
-   

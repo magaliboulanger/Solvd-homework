@@ -8,7 +8,7 @@ import org.apache.logging.log4j.Logger;
 
 import com.solvd.connectionpool.MyConnectionPool;
 import com.solvd.university.dao.*;
-import com.solvd.university.dao.mysql.*;
+import com.solvd.university.dao.mybatis.*;
 import com.solvd.university.model.*;
 import com.solvd.university.services.*;
 
@@ -19,7 +19,7 @@ public class University extends AbstractEntity {
 	
 	public static void main (String [] args ) {
 		
-		//DEPARTMENT SERVICE
+		/*//DEPARTMENT SERVICE
 		IDepartmentDAO d = new DepartmentDAO();
 		ITeacherDAO t = new TeacherDAO();
 		Teacher t1= new Teacher(01,"Martin", "123456", "martin@martin.com");
@@ -37,7 +37,7 @@ public class University extends AbstractEntity {
 		DepartmentService ds=new DepartmentService();
 		Department dept = ds.getById(01);
 		log.info(dept.toString());
-		
+		*/
 		
 		
 		//LIBRARY SERVICE
@@ -48,9 +48,9 @@ public class University extends AbstractEntity {
 		books.add(b3);
 		books.add(b2);
 		books.add(b1);
-		Library l1= new Library(01, "Sarmiento", new Address(0,"",0), books);
-		ILibraryDAO l=new LibraryDAO();
-		l.save(l1);
+		Library l1= new Library(01, "Sarmiento", new Address(0,"",0, 0), books);
+		//ILibraryDAO l=new LibraryDAO();
+		//l.save(l1);
 		IBookDAO b= new BookDAO();
 		b.save(b1,01);
 		b.save(b2,01);
@@ -60,7 +60,7 @@ public class University extends AbstractEntity {
 
 		log.info("library service");
 		log.info(lib.toString());
-		
+		/*
 		//STUDY SERVICE AND TEACH SERVICE
 		Student student=new Student(01, "John", "123456", 248671,"student@gmail.com");
 		Subject subject = new Subject(01, "Maths", 75, 5);
@@ -91,5 +91,7 @@ public class University extends AbstractEntity {
 		StudyService stuserv = new StudyService ();
 		Study out=stuserv.getById(01);
 		log.info(out.toString());
+		
+		*/
 		}
 }

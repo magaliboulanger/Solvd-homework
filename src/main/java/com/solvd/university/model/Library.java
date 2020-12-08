@@ -2,10 +2,23 @@ package com.solvd.university.model;
 
 import java.util.List;
 
-public class Library extends AbstractEntity {
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
 
+import javax.xml.bind.annotation.XmlAccessType;
+
+
+
+@XmlRootElement (name="library") 
+@XmlAccessorType(XmlAccessType.FIELD)
+public class Library extends AbstractEntity {
+	@XmlElement(name="name") 
 	private String name;
+	@XmlElement(name="address") 
 	private Address address;
+	@XmlElement(name="book") 
 	private List<Book> books;
 	
 	public Library(long id, String name, Address address, List<Book> b) {

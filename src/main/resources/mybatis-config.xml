@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE configuration
+  PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-config.dtd">
+
+<configuration>
+ <properties resource="db.properties"/>
+
+  <typeAliases>
+      <typeAlias alias = "Book" type = "com.solvd.university.model.Book"/>
+	  <typeAlias alias = "Library" type = "com.solvd.university.model.Library"/>
+	  <typeAlias alias = "Address" type = "com.solvd.university.model.Address"/>
+	  <typeAlias alias = "AbstractEntity" type = "com.solvd.university.model.AbstractEntity"/>
+	  <typeAlias alias = "Building" type = "com.solvd.university.model.Building"/>
+	  <typeAlias alias = "Room" type = "com.solvd.university.model.Room"/>
+  </typeAliases>
+  
+	
+  <environments default="development">
+    <environment id="development">
+      <transactionManager type="JDBC"/>
+      <dataSource type="POOLED">
+        <property name="driver" value="${jdbc.driver}"/>
+        <property name="url" value="${jdbc.url}"/>
+        <property name="username" value="${jdbc.username}"/>
+        <property name="password" value="${jdbc.password}"/>
+      </dataSource>
+    </environment>
+  </environments>
+  
+  <mappers>
+    <mapper resource="./mappers/BookMapper.xml"/>
+	<mapper resource="./mappers/LibraryMapper.xml"/>
+	<mapper resource="./mappers/AddressMapper.xml"/>
+	<mapper resource="./mappers/AbstractEntityMapper.xml"/>
+	<mapper resource="./mappers/BuildingMapper.xml"/>
+	<mapper resource="./mappers/RoomMapper.xml"/>
+  </mappers>
+  
+</configuration>

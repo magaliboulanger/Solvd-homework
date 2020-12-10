@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
@@ -18,7 +19,7 @@ public class BookDAO implements IBookDAO {
 	
 	private static Logger log = LogManager.getLogger(BookDAO.class);
 		@Override
-		public Book getById(Long id) {
+		public Optional<Book> getById(Long id) {
 			try {
 				InputStream inputStream = Resources.getResourceAsStream("mybatis-config.xml");
 				SqlSessionFactory sqlSessionFactory = new SqlSessionFactoryBuilder().build(inputStream);
@@ -29,7 +30,7 @@ public class BookDAO implements IBookDAO {
 			} catch (IOException e) {
 				log.error(e);
 			}
-			return new Book();
+			return Optional.empty();
 		}
 
 		@Override

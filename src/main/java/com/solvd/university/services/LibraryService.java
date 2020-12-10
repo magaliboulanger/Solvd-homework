@@ -13,7 +13,7 @@ public class LibraryService {
 	}
 	public Library getById(long id) {
 
-		Library d = ldao.getById(id);
+		Library d = ldao.getById(id).get();
 		d.setBooks(bdao.getByLibId(d.getId()));
 		return d;
 

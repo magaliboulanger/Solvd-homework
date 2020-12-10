@@ -2,6 +2,7 @@ package com.solvd.university.parser;
 
 import java.io.File;
 import java.util.List;
+import java.util.Optional;
 
 import javax.xml.validation.Schema;
 
@@ -20,18 +21,18 @@ public class JaxbParserLibrary{
 	private static final String schema = "src/main/resources/schema.xsd";
 	private static Logger log = LogManager.getLogger(JaxbParserLibrary.class);
 
-	public  Library getLibrary(String fileName){
+	public  Optional<Library> getLibrary(String fileName){
 
         try {
             JAXBContext context = JAXBContext.newInstance( Library.class );
             Unmarshaller unmarshaller = context.createUnmarshaller();
             Library c = (Library)unmarshaller.unmarshal(new File(fileName));
-            return c;             
+            return Optional.of(c);             
         } catch (JAXBException e) {
             // TODO Auto-generated catch block
             log.error(e);
         }
-		return null;
+		return Optional.empty();
 	}
 	
 	public static void writeXMLFile(Library lib, String fileName) {

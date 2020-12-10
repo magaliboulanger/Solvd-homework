@@ -6,6 +6,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -89,7 +90,7 @@ public class TeacherDAO extends MySQLDAO  implements ITeacherDAO{
 	}
 
 	@Override
-	public Teacher getById(Long id) {
+	public Optional<Teacher> getById(Long id) {
 		PreparedStatement stat=null;
 		ResultSet rs=null;
 		Teacher t=null;
@@ -129,7 +130,7 @@ public class TeacherDAO extends MySQLDAO  implements ITeacherDAO{
 					log.error(e);
 				}
 		}
-		return t;
+		return Optional.of(t);
 	}
 
 	@Override

@@ -6,6 +6,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -91,7 +92,7 @@ public class BookDAO extends MySQLDAO implements IBookDAO {
 	}
 
 	@Override
-	public Book getById(Long id) {
+	public Optional<Book> getById(Long id) {
 		PreparedStatement stat=null;
 		ResultSet rs=null;
 		Book t=null;
@@ -130,7 +131,7 @@ public class BookDAO extends MySQLDAO implements IBookDAO {
 					log.error(e);
 				}
 		}
-		return t;
+		return Optional.of(t);
 	}
 
 	@Override

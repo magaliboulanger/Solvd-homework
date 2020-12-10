@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
@@ -36,7 +37,7 @@ public class LibraryDAO implements ILibraryDAO{
 	}
 
 	@Override
-	public Library getById(Long id) {
+	public Optional<Library> getById(Long id) {
 		try {
 			InputStream inputStream = Resources.getResourceAsStream("mybatis-config.xml");
 			SqlSessionFactory sqlSessionFactory = new SqlSessionFactoryBuilder().build(inputStream);
@@ -47,7 +48,7 @@ public class LibraryDAO implements ILibraryDAO{
 		} catch (IOException e) {
 			log.error(e);
 		}
-		return new Library();
+		return Optional.empty();
 	}
 
 	@Override

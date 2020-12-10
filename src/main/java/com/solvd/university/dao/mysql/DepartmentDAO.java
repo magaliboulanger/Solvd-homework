@@ -5,6 +5,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.List;
+import java.util.Optional;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -89,7 +90,7 @@ public class DepartmentDAO extends MySQLDAO implements IDepartmentDAO{
 	}
 
 	@Override
-	public Department getById(Long id) {
+	public Optional<Department> getById(Long id) {
 		PreparedStatement stat=null;
 		ResultSet rs=null;
 		Department depto=null;
@@ -129,7 +130,7 @@ public class DepartmentDAO extends MySQLDAO implements IDepartmentDAO{
 				log.error(e);
 			}
 		}
-		return depto;
+		return Optional.of(depto);
 
 	}
 

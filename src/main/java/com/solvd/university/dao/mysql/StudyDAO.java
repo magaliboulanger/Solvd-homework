@@ -5,6 +5,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.List;
+import java.util.Optional;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -66,9 +67,9 @@ public class StudyDAO extends MySQLDAO implements IStudyDAO {
 	}
 
 	@Override
-	public Study getById(Long id) {
+	public Optional<Study> getById(Long id) {
 		// TODO Auto-generated method stub
-		return new Study(id,null,null,null);
+		return Optional.of(new Study());
 	}
 
 	@Override

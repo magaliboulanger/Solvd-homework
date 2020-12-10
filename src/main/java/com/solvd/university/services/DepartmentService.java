@@ -15,7 +15,7 @@ public class DepartmentService {
 
 	public Department getById(long id) {
 		
-		Department d = dDao.getById(id);
+		Department d = dDao.getById(id).get();
 		d.setTeachers(ts.getTeachersByDepartment(id));
 		return d;
 		 

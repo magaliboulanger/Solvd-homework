@@ -18,7 +18,7 @@ public class TeacherService {
 	}
 	
 	public Teacher getById(Long id) {
-		Teacher teacher = tdao.getById(id);
+		Teacher teacher = tdao.getById(id).get();
 		Person person = pserv.getById(id);
 		teacher.setAddress(person.getAddress());
 		teacher.setEmail(person.getEmail());

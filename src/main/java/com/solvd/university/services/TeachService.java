@@ -16,9 +16,9 @@ public class TeachService {
 	}
 	
 	public Teach getById(long id) {
-		Teach out=tedao.getById(id);
-		out.setSubject(sdao.getById(tedao.getSubjIdById(id)));
-		out.setTeacher(tdao.getById(tedao.getTeacherIdById(id)));
+		Teach out=tedao.getById(id).get();
+		out.setSubject(sdao.getById(tedao.getSubjIdById(id)).get());
+		out.setTeacher(tdao.getById(tedao.getTeacherIdById(id)).get());
 		return out;
 	}
 }

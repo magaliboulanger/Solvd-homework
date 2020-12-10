@@ -2,7 +2,9 @@ package com.solvd.university.dao.mybatis;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
@@ -34,18 +36,18 @@ public class AddressDAO implements IAddressDAO {
 	}
 
 	@Override
-	public Address getById(Long id) {
+	public Optional<Address> getById(Long id) {
 		try {
 			InputStream inputStream = Resources.getResourceAsStream("mybatis-config.xml");
 			SqlSessionFactory sqlSessionFactory = new SqlSessionFactoryBuilder().build(inputStream);
 
 			IAddressDAO bhDao = sqlSessionFactory.openSession(true).getMapper(IAddressDAO.class);
 			if(bhDao.getById(id) != null)
-				return bhDao.getById(id);
+				return (bhDao.getById(id));
 		} catch (IOException e) {
 			log.error(e);
 		}
-		return new Address();
+		return Optional.empty();
 	}
 
 	
@@ -66,7 +68,7 @@ public class AddressDAO implements IAddressDAO {
 		}
 		
 		
-		return null;
+		return new ArrayList<Address>();
 	}
 
 }

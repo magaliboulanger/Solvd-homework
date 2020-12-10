@@ -5,6 +5,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.List;
+import java.util.Optional;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -64,7 +65,7 @@ public class SubjectDAO extends MySQLDAO implements ISubjectDAO {
 	}
 
 	@Override
-	public Subject getById(Long id) {
+	public Optional<Subject> getById(Long id) {
 		PreparedStatement stat=null;
 		Connection con =null;
 		ResultSet rs=null;
@@ -104,7 +105,7 @@ public class SubjectDAO extends MySQLDAO implements ISubjectDAO {
 					log.error(e);
 				}
 		}
-		return t;
+		return Optional.of(t);
 	}
 
 	@Override

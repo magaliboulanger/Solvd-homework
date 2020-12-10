@@ -6,6 +6,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -64,7 +65,7 @@ public class ExamDAO extends MySQLDAO implements IExamDAO{
 	}
 
 	@Override
-	public Exam getById(Long id) {
+	public Optional<Exam> getById(Long id) {
 		PreparedStatement stat=null;
 		Connection con =null;
 		ResultSet rs=null;
@@ -104,7 +105,7 @@ public class ExamDAO extends MySQLDAO implements IExamDAO{
 					log.error(e);
 				}
 		}
-		return t;
+		return Optional.of(t);
 	}
 
 	@Override

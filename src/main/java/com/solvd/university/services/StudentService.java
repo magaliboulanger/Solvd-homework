@@ -16,7 +16,7 @@ public class StudentService {
 	}
 	
 	public Student getById(Long id) {
-		Student student = sdao.getById(id);
+		Student student = sdao.getById(id).get();
 		Person person = pserv.getById(id);
 		student.setAddress(person.getAddress());
 		student.setEmail(person.getEmail());

@@ -3,6 +3,7 @@ package com.solvd.university.dao;
 
 
 import java.util.List;
+import java.util.Optional;
 
 import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Select;
@@ -16,7 +17,7 @@ public interface IBookDAO extends DAO<Book,Long>{
 	@Delete("delete from Book where id = #{id}")
 	boolean removeById(Long id);
 	@Select("select * from Book  where id = #{id}")
-	Book getById(Long id);
+	Optional<Book> getById(Long id);
 	@Select("select * from Book")
 	List<Book> getAll();
 	@Select("select * from Cities  where library_id = #{id}")

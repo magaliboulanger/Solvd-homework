@@ -14,8 +14,8 @@ public class PersonService {
 	}
 	
 	public Person getById(Long id) {
-		Person person = pdao.getById(id);
-		Address address = adao.getById(pdao.getAddressId(id));
+		Person person = pdao.getById(id).get();
+		Address address = adao.getById(pdao.getAddressId(id)).get();
 		person.setAddress(address);
 		return person;
 	}

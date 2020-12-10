@@ -20,10 +20,10 @@ public class StudyService {
 		sudao = new SubjectDAO();
 	}
 	public Study getById(long id) {
-		Study out =stuDAO.getById(id);
+		Study out =stuDAO.getById(id).get();
 		TeachService t=new TeachService();
 		out.setTeach(t.getById(stuDAO.getTeachId(id)));
-		out.setStudent(sdao.getById(stuDAO.getStudentId(id)));
+		out.setStudent(sdao.getById(stuDAO.getStudentId(id)).get());
 		out.setExams(edao.getByStudyId(id));
 		return out;
 		

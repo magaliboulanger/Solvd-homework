@@ -2,6 +2,7 @@ package com.solvd.university.dao;
 
 
 import java.util.List;
+import java.util.Optional;
 
 import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Select;
@@ -14,7 +15,7 @@ public interface ILibraryDAO extends DAO<Library, Long>{
 	@Delete("delete from Library where id = #{id}")
 	boolean removeById(Long id);
 	@Select("select * from Library  where id = #{id}")
-	Library getById(Long id);
+	Optional<Library> getById(Long id);
 	@Select("select * from Library")
 	List<Library> getAll();
 }
